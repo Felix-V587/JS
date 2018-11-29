@@ -1,0 +1,42 @@
+html {
+  font-family: Arial, "微软雅黑", Consolas;
+}
+
+main {
+  width: 80%;
+  float: right;
+  section {
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+    padding: 2rem 1rem;
+  }
+}
+
+aside {
+  width: 18%;
+  float: left;
+}
+
+table {
+  border-bottom: 2px solid #444444;
+  tr {
+    th {
+      border-top: 2px solid #444444;
+      border-bottom: 1px solid #444444;
+      padding: 3px 5px;
+    }
+    td {
+      text-align: center;
+      padding: 3px 5px;
+      &:nth-child(2n-1){
+        background-color: #9fafc2;
+      }
+      &:nth-child(2n) {
+        background-color: #eeeeee;
+      }
+    }
+  }
+}
+
+@import "catalogue";
+@import "paragraph";

@@ -1,0 +1,423 @@
+<!-- - var ch_num = "0"--><!DOCTYPE html><html><head><meta charset="utf-8"><title>JavaScript 高级程序设计第三版</title><link rel="stylesheet" href="static/css/index.css"><!--link(rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/default.min.css")--><!--script(src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js")--><link rel="stylesheet" href="static/css/styles/monokai-sublime.css"><script src="static/js/highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body><!--主体--><main><div id="preface01"><section><p class="h1">序</p><p class="paragraph">20 多年的职业生涯，我也长出了白头发。回首往事，曾经对我的职业道路产生过重要影响的技术和
+人历历在目。如果让我只说一种技术，一种对我产生了最大正面影响的技术，那么就是 JavaScript。说
+实话，我也并非一直都是 JavaScript 的信徒。跟许多人一样，我以前也把它当作一门玩具语言，认为它
+只能用来做一些旋转的横幅广告，或者在页面中添加一些有意思的交互效果作为装饰。我原来是做服务
+器端开发的，我们都对这种玩具语言不感冒，该死的！可是，后来 Ajax 出现了。</p><p class="paragraph">永远也忘不了当时无孔不入的 Ajax，大家都认为它是一种非常酷、非常新，同时极具创造性的技术。
+我也开始了解它，阅读相关资料。知道这门曾被我嗤之以鼻的玩具语言如今被每一位专业 Web 开发人
+员津津乐道之后，我感到很震惊。突然，我的看法就转变了。随着探索 Ajax 的继续深入，我认识到
+JavaScript 的强大威力，急切地想了解它能提供的所有“法宝”。于是，我全身心地投入到学习 JavaScript
+之中，不仅努力学习这门语言，还加入了 jQuery 项目团队，专门从事客户端开发。我的日子过得很爽。
+</p><p class="paragraph">对 JavaScript 了解得越深，接触的开发人员就越多，其中不乏今天在我眼里依然是巨星和导师级的
+人物。尼古拉斯·泽卡斯（本书作者）就是这样一位开发人员。我一直记得在读本书第 2 版时心中油然
+而生的喜悦之情，虽然我也有多年的积累，但仍然从中学到了很多新东西。这本书实实在在、深入浅出，
+读来就好像尼古拉斯对不同层次的读者都了如指掌，所以他的风格才那么贴切自然。对于技术书来说，
+这是非常突出的一个特色。多数作者都想靠坚深的技术给人留下印象，但这本书不同。所以，它很快就
+成为了我案头必备的书，我也会向那些有志全面掌握 JavaScript 的开发人员推荐这本书。我希望每个人
+对这本书都能有跟我一样的体会，认识到它的价值所在。</p><p class="paragraph">后来，在一次jQuery大会上，我荣幸地见到了尼古拉斯本人。站在我面前的是一位世界顶级的JavaScript
+开发人员，而且正负责世界上最重要的一个 Web 站点（雅虎）。尼古拉斯是我见过的最随和的人之一。真
+的，见到他的时候我有一种追星族的幻觉。但他就是那么一个活生生的人，一个想帮助开发人员成就梦想
+的人。不仅他的书改变了我对 JavaScript 的认识，而且尼古拉斯这个人，也让我愿意接近，愿意了解。</p><p class="paragraph">听说尼古拉斯要请我作序，我激动得不知道说什么才好。在此，我代表大牛来为本书暖场。这个序
+也是他本人有多么令人景仰的一个明证。不过，更重要的是，这也给了我一个机会，让我能跟大家分享
+自己为什么觉得这本书如此重要。我看过很多 JavaScript 图书，的确也有很多令人叹服的佳作。但在我
+看来，这本书为读者成为全方位的 JavaScript 高手提供了“一揽子方案”。</p><p class="paragraph">这本书从介绍表达式和变量声明开始，平滑地过渡到了闭包、面向对象开发等高级主题。与那些把
+大量篇幅花在讲解背景知识上的书，以及那些让人感觉好像是要使用 JavaScript 开发导弹制导系统的书
+相比，这本书让人感觉细致周到、亲切自然。这是一本写给“普通人”的书，它能让你编写出引以为荣
+的代码，构建出令人叫绝的网站。</p><p class="paragraph"><strong>雷·邦戈（Rey Bango）
+微软公司高级布道师，jQuery 项目团队核心成员</strong></p></section></div><div id="preface02"><section><p class="paragraph">献给我的父母，是他们永远给我支持和鼓励。</p><p class="h1">前 言</p><p class="paragraph">从驱动全球商业、贸易及管理领域不计其数的复杂应用程序的角度来看，说 JavaScript 已经成为当
+今世界上最流行的编程语言一点儿都不为过。
+从驱动全球商业、贸易及管理领域不计其数的复杂应用程序的角度来看，说 JavaScript 已经成为当
+今世界上最流行的编程语言一点儿都不为过。</p><p class="paragraph">JavaScript 是一种非常松散的面向对象语言，也是 Web 开发中极受欢迎的一门语言。JavaScript，尽
+管它的语法和编程风格与 Java 都很相似，但它却不是 Java 的“轻量级”版本，甚至与 Java 没有任何关
+系。JavaScript 是一种全新的动态语言，它植根于全球数亿网民都在使用的 Web 浏览器之中，致力于增
+强网站和 Web 应用程序的交互性。</p><p class="paragraph">在本书中，我们将对 JavaScript 追根溯源，从它在最早的 Netscape 浏览器中诞生谈起，一直谈到今
+天的它对 DOM 和 Ajax 的强大支持。读者将通过本书掌握如何运用和扩展这门语言，从而更好地满足自
+己的需求，以及如何实现客户端与服务器的无缝通信，而又不必求助于 Java 或隐藏的网页框架（frame
+元素）。一言以蔽之，本书将教会你在面对各种常见的 Web 开发问题时，如何拿出自己的 JavaScript 解
+决方案。</p></section><section><p class="h3">本书读者对象</p><p class="paragraph">本书将下列三类人员作为目标读者</p><ol><li>熟悉面向对象编程、经验丰富而又打算学习 JavaScript 的开发人员，JavaScript 毕竟与 Java、C++等传统 OO 语言存在着诸多联系；</li><li>有意提升自己网站和 Web 应用程序易用性的 Web 开发人员；</li><li>希望全面深入地理解这门语言的初级 JavaScript 开发人员。</li></ol><p class="paragraph">此外，本书也适合熟悉下列相关技术的读者阅读：</p><ol><li>Java</li><li>PHP</li><li>ASP.NET</li><li>HTML</li><li>CSS</li><li>XML</li></ol><div class="notes">① 本书中文版《JavaScript 入门经典（第 3 版）》已经由清华大学出版社出版。——译者注（以下脚注如无特殊说明，
+均为译者注）</div></section><section><p class="h3">本书内容</p><p class="paragraph">本书提供了 JavaScript 开发人员必须掌握的内容，全面涵盖了 JavaScript 的各种高级、有用的特性。</p><p class="paragraph">本书首先介绍了 JavaScript 的起源及其发展现状，随后讨论了构成 JavaScript 实现的各个组成部分，
+重点讲解了 ECMAScript 和 DOM 标准。此外，还对不同 Web 浏览器的 JavaScript 实现之间存在的差异，
+给出了相应的说明。</p><p class="paragraph">在此基础上，本书从讲解 JavaScript 的基本概念入手，探讨了 JavaScript 面向对象程序设计和继承的
+方式，以及如何在 HTML 等标记语言中使用它。在深入剖析了事件和事件处理之后，又解释了各种浏
+览器检测技术。本书还探讨了 HTML5、Selectors API 和 File API 等一系列新 API。</p><p class="paragraph">本书最后一部分专门讨论了高级主题，涉及性能和内存优化、最佳实践以及对 JavaScript 未来的
+展望。</p></section><section><p class="h3">本书结构</p><p class="paragraph">本书共 25 章，各章简介如下。</p><p class="paragraph"><span class="strong">第1章“JavaScript 简介”：</span>讲述了 JavaScript 的起源：因何而生，如何发展，现状如何。涉及的
+概念主要有 JavaScript 与 ECMAScript 之间的关系、DOM（Document Object Model，文档对象模型）、
+BOM（Browser Object Model，浏览器对象模型）。此外，还将讨论 ECMA（European Computer
+Manufacturer’s Association，欧洲计算机制造商协会）和 W3C（World Wide Web Consortium，万维网联
+盟）制定的一些相关标准。</p><p class="paragraph"><span class="strong">第2章“在 HTML 中使用 JavaScript”：</span>介绍了如何在 HTML 中使用 JavaScript 创建动态网页。
+这一章不仅展示了在网页中嵌入 JavaScript 的各种方式，还讨论了 JavaScript 内容类型（content-type）及
+其与&lt;script&gt;元素的关系。</p><p class="paragraph"><span class="strong">第3章“基本概念”，</span>讨论了 JavaScript 语言的基本概念，包括语法和流控制语句。这一章也分析
+了 JavaScript 与其他基于 C 的语言在语法上的相同和不同之处，还介绍了与内置操作符有关的类型转换
+问题。</p><p class="paragraph"><span class="strong">第4章“变量、作用域和内存问题”，</span>探讨了 JavaScript 如何处理其松散类型的变量。这一章还讨
+论了原始值和引用值之间的差别，以及与变量有关的执行环境的相应内容。最后，通过介绍 JavaScript
+的垃圾收集机制，解释了变量在退出作用域时释放其内存的问题。</p><p class="paragraph"><span class="strong">第5章“引用类型”，</span>详尽介绍了 JavaScript 内置的所有引用类型，如 Object 和 Array。这一
+章对 ECMA-262 规范中描述的每一种引用类型既做了理论上的阐释，又从浏览器实现的角度给出了
+介绍。</p><p class="paragraph"><span class="strong">第6章“面向对象的程序设计”，</span>讲述了在 JavaScript 中如何实现面向对象的程序设计。由于
+JavaScript 没有类的概念，因此这一章从对象创建和继承的层面上展示了一些流行的技术。此外，这一
+章还讲解了函数原型的概念，并对函数原型与整个面向对象方法的关系进行了探讨。</p><p class="paragraph"><span class="strong">第7章“函数表达式”，</span>集中介绍了 JavaScript 中最为强大的一个特性——函数表达式。相关的内
+容涉及闭包、this 对象的角色、模块模式和创建私有对象成员等。</p><p class="paragraph"><span class="strong">第 8 章“BOM”，</span>介绍 BOM（Browser Object Model，浏览器对象模型），即负责处理与浏览器自
+身有关的交互操作的对象集合。这一章全面介绍了每一个 BOM 对象，包括 window、document、location、
+navigator 和 screen。</p><p class="paragraph"><span class="strong">第 9 章“客户端检测”，</span>讨论了检测客户端机器及其支持特性的各种手段，包括特性检测及用户代
+理字符串检测的不同技术。这一章还就每种手段的优缺点及适用情形给出了详细说明。</p><p class="paragraph"><span class="strong">第 10 章“DOM”，</span>介绍 DOM（Document Object Model，文档对象模型），即 DOM1 规定的 JavaScript
+中的 DOM 对象。这一章也简要介绍了 XML 及其与 DOM 的关系，为深入探讨所有 DOM 规范及其定义
+的操作网页的方式奠定了基础。</p><p class="paragraph"><span class="strong">第 11 章“DOM 扩展”，</span>介绍了其他 API 以及浏览器本身为 DOM 添加的各种功能。涉及内容包括
+Selectors API、Element Traversal API 和 HTML5 扩展。</p><p class="paragraph"><span class="strong">第 12 章“DOM2 和 DOM3”，</span>在前两章的基础上继续探讨了 DOM2 和 DOM3 中新增的 DOM 属
+性、方法和对象。这一章还讨论了 IE 与其他浏览器的兼容性问题。</p><p class="paragraph"><span class="strong">第 13 章“事件”，</span>解释了 JavaScript 中事件的本质，对遗留机制的支持，以及 DOM 对事件机制的
+重新定义。这一章讨论了多种设备，包括 Wii 和 iPhone。</p><p class="paragraph"><span class="strong">第 14 章“表单脚本”，</span>讲述如何使用 JavaScript 增强表单的交互性，突破浏览器的局限性。这一
+章的讨论主要围绕单个表单元素如文本框、选择框，以及围绕数据验证和操作展开。</p><p class="paragraph"><span class="strong">第 15 章“使用 Canvas 绘图”，</span>讨论了&lt;canvas&gt;标签以及如何通过它来动态绘图。不仅涵盖 2D
+上下文，也将讨论 WebGL（3D）上下文，可以为创建动画和游戏夯实基础。</p><p class="paragraph"><span class="strong">第 16 章“HTML5 脚本编程”，</span>介绍了 HTML5 规定的 JavaScript API，涉及跨文档传递消息、拖
+放 API 和以编程方式控制&lt;audio&gt;和&lt;video&gt;元素，以及管理历史状态。</p><p class="paragraph"><span class="strong">第 17 章“错误处理与调试”，</span>讨论浏览器如何处理 JavaScript 代码错误，并展示了一些处理错误的方式。这一章针对每种浏览器分别讨论
+了相应的调试工具和技术，还给出了简化调试工作的建议。</p><p class="paragraph"><span class="strong">第 18 章“JavaScript 与 XML”，</span>展示了 JavaScript 中用于读取和操作 XML（eXtensible Markup
+Language，可扩展标记语言）的特性。这一章分析了不同浏览器提供的 XML 支持和对象的差异，给出
+了编写跨浏览器代码的简易方法。此外，这一章还介绍了用于在客户端转换XML数据的XSLT（eXtensible
+Stylesheet Language Transformations，可扩展样式表语言转换）技术。</p><p class="paragraph"><span class="strong">第 19 章“E4X”，</span>讨论了 E4X（ECMAScript for XML，ECMAScript 中的 XML 扩展）；设计 E4X 的
+出发点是简化 XML 处理任务。这一章探讨了在处理 XML 时，使用 E4X 与使用 DOM 相比有哪些
+优势。</p><p class="paragraph"><span class="strong">第 20 章“JSON”，</span>介绍了作为 XML 替代格式的 JSON，包含浏览器原生支持的 JSON 解析和序
+列化，以及使用 JSON 时要注意的安全问题。</p><p class="paragraph"><span class="strong">第 21 章“Ajax 与 Comet”，</span>讲解了常用的 Ajax 技术，包括使用 XMLHttpRequest 对象及 CORS
+（Cross-Origin Resource Sharing，跨来源资源共享）API 实现跨域 Ajax 通信。这一章展示了浏览器在实
+现与支持方面存在的差异，同时也给出了一些使用建议。</p><p class="paragraph"><span class="strong">第 22 章“高级技巧”，</span>深入讲解了一些 JavaScript 中较复杂的模式，包括函数柯里化（currying）、
+部分函数应用和动态函数。这一章还讨论了如何创建自定义的事件框架和使用 ECMAScript 5 创建防篡
+改对象。</p><p class="paragraph"><span class="strong">第 23 章“离线应用与客户端存储”，</span>讨论了如何检测应用离线以及在客户端机器中存储数据的各
+种技术。先从受到最广泛支持的特性 cookie 谈起，继而介绍了新兴的客户端存储技术，如 Web Storage
+和 IndexedDB。</p><p class="paragraph"><span class="strong">第 24 章“最佳实践”，</span>探讨了在企业级环境中使用 JavaScript 的各种方式。其中，着眼于提高可
+维护性的内容包括编码技巧、格式化和通用编程实践。这一章还介绍了改善代码执行性能及速度优化的
+一些技术。最后讨论了部署问题，包括如何创建构建过程。</p><p class="paragraph"><span class="strong">第 25 章“新兴的 API”，</span>介绍了为增强浏览器中的 JavaScript 而创建的新 API。虽然这些 API 还没
+有得到完整或全面的支持，但它们已经崭露头角，有些浏览器也已经部分地实现了这些 API。这一章的
+内容主要是 Web 计时和文件 API。</p></section><section><p class="h3">使用示例</p><p class="paragraph">要运行本书中的示例，需要安装下列软件：</p><p class="paragraph"> Windows XP、Windows 7 或 Mac OS X；</p><p class="paragraph"> Internet Explorer 6 及更高版本、Firefox 2 及更高版本、Opera 9 及更高的版本、Chrome、Safari 2及更高版本。</p><p class="notes">完整的示例源代码可以从 http://www.wrox.com/中下载（下载步骤见“源代码”一节）①。</p></section><section><p class="h3">排版约定</p><p class="paragraph">为了让读者更好地理解本书内容，同时把握住全书的重点，本书将采用以下排版约定。</p><div class="paragraph important">这种方框样式，表示与上下文相关的重要的、需要牢记的内容。</div><div class="paragraph tips">这种带方框样式，表示与上下文相关的说明、提示、技巧、窍门和背景知识。</div><p class="paragraph">正文中的样式说明如下。<ol><li>新术语及重要的词汇在首次出现时使用加粗字体以示强调；</li><li>表示键盘命令组合的方式是 Ctrl+A；</li><li>正文中的代码使用等宽字体，如 persistence.properties；</li><li>代码有两种样式：<div class="paragraph"><div>var obj = new Object(); // 大多数示例代码都没有加粗</div><div><strong>var obj = new Object(); // 加粗的代码表示在上下文中特别重要</strong></div></div></li></ol></p></section><section><p class="h3">源代码</p><p class="paragraph">在学习本书示例代码时，可以手工敲入所有代码，也可以使用随书的源代码文件。本书所有源代码
+都可以到 www.wrox.com 中下载。登录该站点后，先找到本书（通过搜索或者图书列表），打开本书页面后，
+单击其中的 Download Code 链接，就可以下载本书的源代码了①。对于包含在下载文件中的源代码，文中会添加
+源代码文件名称，点击文件名称即可打开对应的源代码文件。</p><p class="paragraph">本书代码示例旁边会附有文件名，从中可以找到对应的代码片段。文件名的格式如下：</p><p class="paragraph source-file">代码片段所在的文件名</p><div class="paragraph tips">由于很多书的书名看起来类似，所以更好的方式是通过书的 ISBN 来搜索它。本书原版的 ISBN 是 978-1-118-02669-4。</div></section><section><p class="h3">勘误信息②</p><p class="paragraph">我们尽最大努力确保正文和代码没有错误。可是，金无足赤，错误在所难免。如果读者发现我们书
+中的任何错误，例如错别字或代码片段无法运行等，希望您能及时给我们反馈。您提交的勘误不仅能让
+其他读者受益，而且也能帮助我们进一步提高图书质量。</p><p class="paragraph">本书原版的勘误页面位于 www.wrox.com 中，登录该站点后可以通过搜索或查询图书列表找到本
+书页面，然后单击页面中的 Errata（勘误）链接。然后可以看到其他读者已经提交并由 Wrox 的编辑发
+布的勘误信息。另外，在 www.wrox.com/misc-pages/booklist.shtml 页面中也可以找到本书及勘误页面
+的链接。</p><p class="paragraph">如果读者在本书勘误页面中没有发现“你的”错误，麻烦打开 www.wrox.com/contact/techsupport.shtml
+页面，填写其中的表单并将错误发送给我们。我们会认真核对您提交的错误，如果错误确实存在，我们
+将把它补充到本书勘误页面中。同时，也将根据您提供的信息对本书后续版本加以改正。
+</p></section><section><p class="h3">p2p.wrox.com</p><p class="paragraph">如果您想与本书作者或者其他读者沟通，请加入 P2P 论坛（p2p.wrox.com）。该论坛是基于 Web 的
+系统，您可以在其中发表与 Wrox 图书及相关技术有关的帖子，并同其他读者或者技术用户交流。论坛
+提供了一个订阅功能，您可以选择当发表您感兴趣的帖子时通过邮件通知您。Wrox 的作者、编辑、其
+他行业的专家以及与您正在读同一本书的读者都会出现在这个论坛中。</p><p class="paragraph">在 http://p2p.wrox.com 中，有很多论坛不仅对您理解本书有帮助，而且还会对开发应用程序有帮助。
+要加入这个论坛，请按下面几个步骤进行：<ol><li>登录到 p2p.wrox.com，单击 Register（注册）链接；</li><li>阅读使用条款并单击 Agree（同意）；</li><li>完成必填信息和您愿意提供的可选信息，然后单击 Submit（提交）；</li><li>随后，您会收到一封电子邮件，其中包含如何验证账号和完成注册过程的信息。</li></ol><div class="tips">如果不加入 P2P 论坛，虽然也可以阅读其中的帖子，但却不能发表帖子，只有注
+册后才能发表。</div></p><p class="paragraph">在加入论坛后，既可以发表新帖子也可以回复其他用户的帖子。可以在任何时间上网浏览论坛中的
+帖子。如果希望将某个论坛中的新帖子通过电子邮件发送给您，请在论坛列表中单击与论坛名相关的
+Subscribe to this Forum（订阅这个论坛）图标。</p><p class="paragraph">如果想了解有关如何使用 Wrox P2P 的更多信息，请阅读包含论坛规则、P2P 及 Wrox 图书常见问题
+的 P2P FAQ；要阅读 FAQ，可以在任何 P2P 页面中单击 FAQ 链接。</p></section><section><p class="h3">致谢</p><p class="paragraph">虽然作者的名字被印在了封面上，但一个人是不可能完成这本书的，我想感谢与出版本书有关的一些人。</p><p class="paragraph">首先，感谢 John Wiley & Sons 继续给我写作的机会。当时，出版本书第 1 版时，他们是唯一愿意承担风险的一家出版社。对此，我将永远铭记于心。</p><p class="paragraph">感谢 John Wiley & Sons 的编辑人员，特别是 Kevin Kent 和 John Peloquin，他们卓有成效的工作使我保持了坦诚直率的风格，也解决了我在写作期间不断变更内容的问题。</p><p class="paragraph">还要感谢对本书草稿给出反馈意见的所有人：Rob Friesel、Sergey Ilinsky、Dan Kielp、Peter-Paul Koch、Jeremy McPeak、Alex Petrescu、Dmitry Soshnikov 和 Juriy “Kangax” Zaytsev。你们的宝贵意见让我自己都为本书感到骄傲。</p><p class="paragraph">我想特别感谢 Brendan Eich，感谢他纠正了第 1 章中有关 JavaScript 历史的细节问题。</p><p class="paragraph">最后，当然也是非常重要的，感谢 Rey Bango 为本书作序。很高兴在与 Rey 通过网络认识几年之后，
+终于在 2010 年有缘相见。他是这个行业里真正出色的人，我非常荣幸能请到他为本书作序。</p></section><section><p class="h3">关于技术编辑</p><p class="paragraph">John Peloquin 是一位有十多年 JavaScript 经验的前端工程师，开发过各种规模的应用。John 拥有加
+州大学伯克利分校的数学学士学位，目前在一家致力于卫生保健的创业公司担任开发主管。在编辑本书
+之前，John 编辑过 Jeremy McPeak 的 JavaScript 24-Hour Trainer（Wiley，2010）。编写代码和收集勘误
+之余，John 经常沉迷于数学、哲学和魔术。</p></section></div><!--章节--><div id="ch1"><section><p class="h1">第 1 章JavaScript 简介</p><ul>本章内容<li>JavaScript 历史回顾</li><li>JavaScript 是什么</li><li>JavaScript 与 ECMAScript 的关系</li><li>JavaScript 的不同版本</li></ul><p class="paragraph">JavaScript 诞生于 1995 年。当时，它的主要目的是处理以前由服务器端语言（如 Perl）负责的一
+些输入验证操作。在 JavaScript 问世之前，必须把表单数据发送到服务器端才能确定用户是否
+没有填写某个必填域，是否输入了无效的值。Netscape Navigator 希望通过 JavaScript 来解决这个问题。
+在人们普遍使用电话拔号上网的年代，能够在客户端完成一些基本的验证任务绝对是令人兴奋的。毕竟，
+拨号上网的速度之慢，导致了与服务器的每一次数据交换事实上都成了对人们耐心的一次考验。</p><p class="paragraph">自此以后，JavaScript 逐渐成为市面上常见浏览器必备的一项特色功能。如今，JavaScript 的用途早
+已不再局限于简单的数据验证，而是具备了与浏览器窗口及其内容等几乎所有方面交互的能力。今天的
+JavaScript 已经成为一门功能全面的编程语言，能够处理复杂的计算和交互，拥有了闭包、匿名（lamda，
+拉姆达）函数，甚至元编程等特性。作为 Web 的一个重要组成部分，JavaScript 的重要性是不言而喻的，
+就连手机浏览器，甚至那些专为残障人士设计的浏览器等非常规浏览器都支持它。当然，微软的例子更
+为典型。虽然有自己的客户端脚本语言 VBScript，但微软仍然在 Internet Explorer 的早期版本中加入了
+自己的 JavaScript 实现①。</p><p class="paragraph">JavaScript 从一个简单的输入验证器发展成为一门强大的编程语言，完全出乎人们的意料。应该说，
+它既是一门非常简单的语言，又是一门非常复杂的语言。说它简单，是因为学会使用它只需片刻功夫；
+而说它复杂，是因为要真正掌握它则需要数年时间。要想全面理解和掌握 JavaScript，关键在于弄清楚
+它的本质、历史和局限性。</p></section></div><div id="ch1-1"><section><p class="h2">1.1 JavaScript 简史</p><p class="paragraph">在 Web 日益流行的同时，人们对客户端脚本语言的需求也越来越强烈。那个时候，绝大多数因
+特网用户都使用速度仅为 28.8kbit/s 的“猫”（调制解调器）上网，但网页的大小和复杂性却不断增
+加。为完成简单的表单验证而频繁地与服务器交换数据只会加重用户的负担。想象一下：用户填写
+完一个表单，单击“提交”按钮，然后等待 30 秒钟，最终服务器返回消息说有一个必填字段没有填好……
+当时走在技术革新最前沿的 Netscape 公司，决定着手开发一种客户端语言，用来处理这种简单的验证。</p><p class="paragraph">当时就职于 Netscape 公司的布兰登·艾奇（Brendan Eich），开始着手为计划于 1995 年 2 月发布的
+Netscape Navigator 2 开发一种名为 LiveScript 的脚本语言——该语言将同时在浏览器和服务器中使用
+（它在服务器上的名字叫 LiveWire）。为了赶在发布日期前完成 LiveScript 的开发，Netscape 与 Sun 公司
+建立了一个开发联盟。在 Netscape Navigator 2 正式发布前夕，Netscape 为了搭上媒体热炒 Java 的顺风车，
+临时把 LiveScript 改名为 JavaScript。</p><p class="paragraph">由于 JavaScript 1.0 获得了巨大成功，Netscape 随即在 Netscape Navigator 3 中又发布了 JavaScript 1.1。
+Web 虽然羽翼未丰，但用户关注度却屡创新高。在这样的背景下，Netscape 把自己定位为市场领袖型公
+司。与此同时，微软决定向与 Navigator 竞争的自家产品 Internet Explorer 浏览器投入更多资源。Netscape
+Navigator 3 发布后不久，微软就在其 Internet Explorer 3 中加入了名为 JScript 的 JavaScript 实现（命名为
+JScript 是为了避开与 Netscape 有关的授权问题）。以现在的眼光来看，微软 1996 年 8 月为进入 Web 浏览
+器领域而实施的这个重大举措，是导致 Netscape 日后蒙羞的一个标志性事件。然而，这个重大举措同时
+也标志着 JavaScript 作为一门语言，其开发向前迈进了一大步。</p><p class="paragraph">微软推出其 JavaScript 实现意味着有了两个不同的 JavaScript 版本：Netscape Navigator 中的
+JavaScript、Internet Explorer 中的 JScript。与 C 及其他编程语言不同，当时还没有标准规定 JavaScript 的
+语法和特性，两个不同版本并存的局面已经完全暴露了这个问题。随着业界担心的日益加剧，JavaScript
+的标准化问题被提上了议事日程。</p><p class="paragraph">1997 年，以 JavaScript 1.1 为蓝本的建议被提交给了欧洲计算机制造商协会（ECMA，European
+Computer Manufacturers Association）。该协会指定 39 号技术委员会（TC39，Technical Committee #39）
+负责“标准化一种通用、跨平台、供应商中立的脚本语言的语法和语义”（http://www.ecma
+international.org/memento/TC39.htm）。TC39 由来自 Netscape、Sun、微软、Borland 及其他关注脚本语言
+发展的公司的程序员组成，他们经过数月的努力完成了 ECMA-262——定义一种名为 ECMAScript（发
+音为“ek-ma-script”）的新脚本语言的标准。</p><p class="paragraph">第二年，ISO/IEC（International Organization for Standardization and International Electrotechnical
+Commission，国标标准化组织和国际电工委员会）也采用了 ECMAScript 作为标准（即 ISO/IEC-16262）。
+自此以后，浏览器开发商就开始致力于将 ECMAScript 作为各自 JavaScript 实现的基础，也在不同程度
+上取得了成功。</p></section></div><!-- - var ch_num = "0"--><div id="ch1-2"><section><p class="h2">1.2 JavaScript 实现</p><p class="paragraph">虽然 JavaScript 和 ECMAScript 通常都被人们用来表达
+相同的含义，但 JavaScript 的含义却比 ECMA-262 中规定的
+要多得多。没错，一个完整的 JavaScript 实现应该由下列三
+个不同的部分组成（见图 1-1）。</p><ul><li>核心（ECMAScript）</li><li>文档对象模型（DOM）</li><li>浏览器对象模型（BOM）</li></ul><div class="images"><img src="static/images/ch1/ch1-1.jpg" alt="图1-1"><div class="img-tips">图 1-1</div></div></section></div><!-- - var ch_num = "0"--><div id="ch1-2-1"><section><p class="h3">1.2.1 ECMAScript</p><p class="paragraph">由 ECMA-262 定义的 ECMAScript 与 Web 浏览器没有依赖关系。实际上，这门语言本身并不包含输
+入和输出定义。ECMA-262 定义的只是这门语言的基础，而在此基础之上可以构建更完善的脚本语言。
+我们常见的 Web 浏览器只是 ECMAScript 实现可能的宿主环境之一。宿主环境不仅提供基本的
+ECMAScript 实现，同时也会提供该语言的扩展，以便语言与环境之间对接交互。而这些扩展——如
+DOM，则利用 ECMAScript 的核心类型和语法提供更多更具体的功能，以便实现针对环境的操作。其他
+宿主环境包括 Node（一种服务端 JavaScript 平台）和 Adobe Flash。</p><p class="paragraph">既然 ECMA-262 标准没有参照 Web 浏览器，那它都规定了些什么内容呢？大致说来，它规定了这
+门语言的下列组成部分：</p><ul><li>语法</li><li>类型</li><li>语句</li><li>关键字</li><li>保留字</li><li>操作符</li><li>对象</li></ul><p class="paragraph">ECMAScript 就是对实现该标准规定的各个方面内容的语言的描述。JavaScript 实现了 ECMAScript，
+Adobe ActionScript 同样也实现了 ECMAScript。</p><p class="paragraph"><strong>1. ECMAScript 的版本</strong></p><p class="paragraph">ECMAScript 的不同版本又称为版次，以第 x 版表示（意即描述特定实现的 ECMA-262 规范的第 x
+个版本）。ECMA-262 的最近一版是第 5 版，发布于 2009 年。而 ECMA-262 的第 1 版本质上与 Netscape
+的 JavaScript 1.1 相同——只不过删除了所有针对浏览器的代码并作了一些较小的改动：ECMA-262 要求
+支持 Unicode 标准（从而支持多语言开发），而且对象也变成了平台无关的（Netscape JavaScript 1.1 的对
+象在不同平台中的实现不一样，例如 Date 对象）。这也是 JavaScript 1.1 和 1.2 与 ECMA-262 第 1 版不一
+致的主要原因。</p><p class="paragraph">ECMA-262 第 2 版主要是编辑加工的结果。这一版中内容的更新是为了与 ISO/IEC-16262 保持严格
+一致，没有作任何新增、修改或删节处理。因此，一般不使用第 2 版来衡量 ECMAScript 实现的兼容性。</p><p class="paragraph">ECMA-262 第 3 版才是对该标准第一次真正的修改。修改的内容涉及字符串处理、错误定义和数
+值输出。这一版还新增了对正则表达式、新控制语句、try-catch 异常处理的支持，并围绕标准的
+国际化做出了一些小的修改。从各方面综合来看，第 3 版标志着 ECMAScript 成为了一门真正的编程
+语言。</p><p class="paragraph">ECMA-262 第 4 版对这门语言进行了一次全面的检核修订。由于 JavaScript 在 Web 上日益流行，开
+发人员纷纷建议修订 ECMAScript，以使其能够满足不断增长的 Web 开发需求。作为回应，ECMA TC39
+重新召集相关人员共同谋划这门语言的未来。结果，出台后的标准几乎在第 3 版基础上完全定义了一门
+新语言。第 4 版不仅包含了强类型变量、新语句和新数据结构、真正的类和经典继承，还定义了与数据
+交互的新方式。</p><p class="paragraph">与此同时，TC39 下属的一个小组也提出了一个名为 ECMAScript 3.1 的替代性建议，该建议只对这
+门语言进行了较少的改进。这个小组认为第 4 版给这门语言带来的跨越太大了。因此，该小组建议对这
+门语言进行小幅修订，能够在现有 JavaScript 引擎基础上实现。最终，ES3.1 附属委员会获得的支持超过
+了 TC39，ECMA-262 第 4 版在正式发布前被放弃。</p><p class="paragraph">ECMAScript 3.1 成为 ECMA-262 第 5 版，并于 2009 年 12 月 3 日正式发布。第 5 版力求澄清第 3
+版中已知的歧义并增添了新的功能。新功能包括原生 JSON 对象（用于解析和序列化 JSON 数据）、继
+承的方法和高级属性定义，另外还包含一种严格模式，对 ECMAScript 引擎解释和执行代码进行了补充
+说明。</p><p class="paragraph"><strong>2. 什么是 ECMAScript 兼容</strong></p><p class="paragraph">ECMA-262 给出了 ECMAScript 兼容的定义。要想成为 ECMAScript 的实现，则该实现必须做到：</p><ul><li>支持 ECMA-262 描述的所有“类型、值、对象、属性、函数以及程序句法和语义”（ECMA-262第 1 页）</li><li>支持 Unicode 字符标准。</li></ul><p class="paragraph">此外，兼容的实现还可以进行下列扩展。</p><ul><li>添加 ECMA-262 没有描述的“更多类型、值、对象、属性和函数”。ECMA-262 所说的这些新增特性，主要是指该标准中没有规定的新对象和对象的新属性。</li><li>支持 ECMA-262 没有定义的“程序和正则表达式语法”。（也就是说，可以修改和扩展内置的正则表达式语法。）</li></ul><p class="paragraph">上述要求为兼容实现的开发人员基于 ECMAScript 开发一门新语言提供了广阔的空间和极大的灵活
+性，这也从另一个侧面说明了 ECMAScript 受开发人员欢迎的原因。</p><p class="paragraph"><strong>3. Web 浏览器对 ECMAScript 的支持</strong></p><p class="paragraph">1996 年，Netscape Navigator 3 捆绑发布了 JavaScript 1.1。而相同的 JavaScript 1.1 设计规范随后作为
+对新标准（ECMA-262）的建议被提交给 Ecma。伴随着 JavaScript 的迅速走红，Netscape 豪情满怀地着
+手开发 JavaScript 1.2。然而，问题是 Ecma 当时还没有接受 Netscape 的建议。</p><p class="paragraph">Netscape Navigator 3 发布后不久，微软也推出了 Internet Explorer 3。微软在 IE 的这一版中捆绑了
+JScript 1.0，很多人都认为 JScript 1.0 与 JavaScript 1.1 应该是一样的。但是，由于没有文档依据，加之不
+适当的特性模仿，JScript 1.0 还是很难与 JavaScript 1.1 相提并论。</p><p class="paragraph">1997 年，内置 JavaScript 1.2 的 Netscape Navigator 4 发布；而到这一年年底，ECMA-262 第 1 版也
+被接受并实现了标准化。结果，虽然 ECMAScript 被认为是基于 JavaScript 1.1 制定的，但 JavaScript 1.2
+与 ECMAScript 的第 1 版并不兼容。</p><p class="paragraph">JScript 的升级版是 Internet Explorer 4 中内置的 JScript 3.0（随同微软 IIS 3.0 发布的 JScript 2.0 从来
+也没有移植到浏览器中）。微软通过媒体大肆宣传 JScript 3.0 是世界上第一个 ECMA 兼容的脚本语言，
+但当时的 ECMA-262 尚未定稿。于是，JScript 3.0 与 JavaScript 1.2 都遭遇了相同的尴尬局面——谁都没
+有按照最终的 ECMAScript 标准来实现。</p><p class="paragraph">Netscape 决定更新其 JavaScript 实现，即在 Netscape Navigator 4.06 中发布 JavaScript 1.3，从而做到
+了与 ECMA-262 的第一个版本完全兼容。在 JavaScript 1.3 中，Netscape 增加了对 Unicode 标准的支持，
+并在保留 JavaScript 1.2 新增特性的同时实现了所有对象的平台中立化。</p><p class="paragraph">在 Netscape 以 Mozilla 项目的名义开放其源代码时，预期 JavaScript 1.4 将随同 Netscape Navigator 5
+一道发布。然而，一个激进的决定，彻底重新设计 Netscape 代码，打乱了原有计划。后来，JavaScript 1.4
+只发布了针对 Netscape Enterprise Server 的服务器版，而没有内置于 Web 浏览器中。</p><p class="paragraph">到了 2008 年，五大主流 Web 浏览器（IE、Firefox、Safari、Chrome 和 Opera）全部做到了与 ECMA-262
+兼容。IE8 是第一个着手实现 ECMA-262 第 5 版的浏览器，并在 IE9 中提供了完整的支持。Firefox 4 也
+紧随其后做到兼容。下表列出了 ECMAScript 受主流 Web 浏览器支持的情况。</p><p class="paragraph"><table cellspacing="0"><tr><th>浏 览 器</th><th>ECMAScript兼容性</th><th>浏 览 器</th><th>ECMAScript兼容性</th></tr><tr><td>Netscape Navigator 2</td><td>—</td><td>Opera 6～7.1</td><td>第2版</td></tr><tr><td>Netscape Navigator 3</td><td>—</td><td>Opera 7.2+</td><td>第3版</td></tr><tr><td>Netscape Navigator 4～4.05</td><td>—</td><td>Safari 1～2.0.x</td><td>第3版*</td></tr><tr><td>Netscape Navigator 4.06～4.79</td><td>第1版</td><td>Safari 3.x</td><td>第3版</td></tr><tr><td>Netscape 6+（Mozilla 0.6.0+）</td><td>第3版</td><td>Safari 4.x～5.x</td><td>第5版*</td></tr><tr><td>IE3</td><td>—</td><td>Chrome 1+</td><td>第3版</td></tr><tr><td>IE4</td><td>—</td><td>Firefox 1～2</td><td>第3版</td></tr><tr><td>IE5</td><td>第1版</td><td>Firefox 3.0.x</td><td>第3版</td></tr><tr><td>IE5.5～IE7</td><td>第3版</td><td>Firefox 3.5～3.6</td><td>第5版*</td></tr><tr><td>IE8</td><td>第5版*</td><td>Firefox 4.0 +</td><td>第5版</td></tr><tr><td>IE9+</td><td>第5版</td></tr></table></p><div class="paragraph notes">* 不完全兼容的实现</div></section></div><!-- - var ch_num = "0"--><div id="ch1-2-2"><section><p class="h3">1.2.2 文档对象模型（DOM）</p><p class="paragraph">文档对象模型（DOM，Document Object Model）是针对 XML 但经过扩展用于 HTML 的应用程序编
+程接口（API，Application Programming Interface）。DOM 把整个页面映射为一个多层节点结构。HTML
+或 XML 页面中的每个组成部分都是某种类型的节点，这些节点又包含着不同类型的数据。看下面这个
+HTML 页面：</p><!--代码段，使用highlighter.js高亮--><pre><code>&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Sample Page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;p&gt;Hello World!&lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><p class="paragraph">在 DOM 中，这个页面可以通过图 1-2 所示的分层节点图表示。</p><p class="paragraph">通过 DOM 创建的这个表示文档的树形图，开发人员获得了控制页面内容和结构的主动权。借助
+DOM 提供的 API，开发人员可以轻松自如地删除、添加、替换或修改任何节点。</p><p class="paragraph"><strong>1. 为什么要使用 DOM</strong></p><p class="paragraph">在 Internet Explorer 4 和 Netscape Navigator 4 分别支持的不同形式的 DHTML（Dynamic HTML）基
+础上，开发人员首次无需重新加载网页，就可以修改其外观和内容了。然而，DHTML 在给 Web 技术发
+展带来巨大进步的同时，也带来了巨大的问题。由于 Netscape 和微软在开发 DHTML 方面各持己见，过
+去那个只编写一个 HTML 页面就能够在任何浏览器中运行的时代结束了。</p><p class="paragraph">对开发人员而言，如果想继续保持 Web 跨平台的天性，就必须额外多做一些工作。而人们真正担
+心的是，如果不对 Netscape 和微软加以控制，Web 开发领域就会出现技术上两强割据，浏览器互不兼容的局面。
+此时，负责制定 Web 通信标准的 W3C（World Wide Web Consortium，万维网联盟）开始着手规划 DOM。</p><div class="images"><img src="static/images/ch1/ch1-2.jpg" alt="图1-2"><div class="img-tips">图 1-2</div></div><p class="paragraph"><strong>2. DOM 级别</strong></p><p class="paragraph">DOM1 级（DOM Level 1）于 1998 年 10 月成为 W3C 的推荐标准。DOM1 级由两个模块组成：DOM
+核心（DOM Core）和 DOM HTML。其中，DOM 核心规定的是如何映射基于 XML 的文档结构，以便
+简化对文档中任意部分的访问和操作。DOM HTML 模块则在 DOM 核心的基础上加以扩展，添加了针
+对 HTML 的对象和方法。</p><p class="paragraph tips">请读者注意，DOM 并不只是针对 JavaScript 的，很多别的语言也都实现了 DOM。
+不过，在 Web 浏览器中，基于 ECMAScript 实现的 DOM 的确已经成为 JavaScript 这
+门语言的一个重要组成部分。</p><p class="paragraph">如果说 DOM1 级的目标主要是映射文档的结构，那么 DOM2 级的目标就要宽泛多了。DOM2 级在
+原来 DOM 的基础上又扩充了（DHTML 一直都支持的）鼠标和用户界面事件、范围、遍历（迭代 DOM
+文档的方法）等细分模块，而且通过对象接口增加了对 CSS（Cascading Style Sheets，层叠样式表）的
+支持。DOM1 级中的 DOM 核心模块也经过扩展开始支持 XML 命名空间。</p><p class="paragraph">DOM2 级引入了下列新模块，也给出了众多新类型和新接口的定义。</p><ul><li>DOM 视图（DOM Views）：定义了跟踪不同文档（例如，应用 CSS 之前和之后的文档）视图的接口；</li><li>DOM 事件（DOM Events）：定义了事件和事件处理的接口；</li><li>DOM 样式（DOM Style）：定义了基于 CSS 为元素应用样式的接口；</li><li>DOM 遍历和范围（DOM Traversal and Range）：定义了遍历和操作文档树的接口。</li></ul><p class="paragraph">DOM3 级则进一步扩展了 DOM，引入了以统一方式加载和保存文档的方法——在 DOM 加载和保
+存（DOM Load and Save）模块中定义；新增了验证文档的方法——在 DOM 验证（DOM Validation）模
+块中定义。DOM3 级也对 DOM 核心进行了扩展，开始支持 XML 1.0 规范，涉及 XML Infoset、XPath
+和 XML Base。</p><p class="paragraph tips">在阅读 DOM 标准的时候，读者可能会看到 DOM0 级（DOM Level 0）的字眼。
+实际上，DOM0 级标准是不存在的；所谓 DOM0 级只是 DOM 历史坐标中的一个参照
+点而已。具体说来，DOM0 级指的是 Internet Explorer 4.0 和 Netscape Navigator 4.0 最
+初支持的 DHTML。
+</p><p class="paragraph"><strong>3. 其他 DOM 标准</strong></p><p class="paragraph">除了 DOM 核心和 DOM HTML 接口之外，另外几种语言还发布了只针对自己的 DOM 标准。下面
+列出的语言都是基于 XML 的，每种语言的 DOM 标准都添加了与特定语言相关的新方法和新接口：</p><ul><li>SVG（Scalable Vector Graphic，可伸缩矢量图）1.0；</li><li>MathML（Mathematical Markup Language，数学标记语言）1.0；</li><li>SMIL（Synchronized Multimedia Integration Language，同步多媒体集成语言）。</li></ul><p class="paragraph">还有一些语言也开发了自己的 DOM 实现，例如 Mozilla 的 XUL（XML User Interface Language，XML
+用户界面语言）。但是，只有上面列出的几种语言是 W3C 的推荐标准。</p><p class="paragraph"><strong>4. Web 浏览器对 DOM 的支持</strong></p><p class="paragraph">在 DOM 标准出现了一段时间之后，Web 浏览器才开始实现它。微软在 IE5 中首次尝试实现 DOM，
+但直到 IE5.5 才算是真正支持 DOM1 级。在随后的 IE6 和 IE7 中，微软都没有引入新的 DOM 功能，而
+到了 IE8 才对以前 DOM 实现中的 bug 进行了修复。</p><p class="paragraph">Netscape 直到 Netscape 6（Mozilla 0.6.0）才开始支持 DOM。在 Netscape 7 之后，Mozilla 把开发重心转
+向了 Firefox 浏览器。Firefox 3 完全支持 DOM1 级，几乎完全支持 DOM2 级，甚至还支持 DOM3 级的一部
+分。（Mozilla 开发团队的目标是构建与标准 100%兼容的浏览器，而他们的努力也得到了回报。）</p><p class="paragraph">目前，支持 DOM 已经成为浏览器开发商的首要目标，主流浏览器每次发布新版本都会改进对 DOM
+的支持。下表列出了主流浏览器对 DOM 标准的支持情况。</p><table><tr><th>浏 览 器</th><th>DOM兼容性</th></tr><tr><td>Netscape Navigator 1. ～ 4.x</td><td>—</td></tr><tr><td>Netscape 6+ （Mozilla 0.6.0+）</td><td>1级、2级（几乎全部）、3级（部分）</td></tr><tr><td>IE2～IE4.x</td><td>—</td></tr><tr><td>IE5</td><td>1级（最小限度）</td></tr><tr><td>IE5.5～IE8</td><td>1级（几乎全部）</td></tr><tr><td>IE9+</td><td>1级、2级、3级</td></tr><tr><td>Opera 1～6</td><td>—</td></tr><tr><td>Opera 7～8.x</td><td>1级（几乎全部）、2级（部分）</td></tr><tr><td>Opera 9～9.9</td><td>1级、2级（几乎全部）、3级（部分）</td></tr><tr><td>Opera 10+</td><td>1级、2级、3级（部分）</td></tr><tr><td>Safari 1.0.x</td><td>1级</td></tr><tr><td>Safari 2+</td><td>1级、2级（部分）</td></tr><tr><td>Chrome 1+</td><td>1级、2级（部分）</td></tr><tr><td>Firefox 1+</td><td>1级、2级（几乎全部）、3级（部分）</td></tr></table><p class="paragraph"></p><p class="paragraph"></p></section></div><!-- - var ch_num = "0"--><div id="ch1-3"><section><p class="h2">1.3 JavaScript 版本</p><div class="paragraph">作为 Netscape“继承人”的 Mozilla 公司，是目前唯一还在沿用最初的 JavaScript 版本编号序列的浏
+览器开发商。在 Netscape 将源代码提交给开源的 Mozilla 项目的时候，JavaScript 在浏览器中的最后一个
+版本号是 1.3。（如前所述，1.4 版是只针对服务器的实现。）后来，随着 Mozilla 基金会继续开发 JavaScript，
+添加新的特性、关键字和语法，JavaScript 的版本号继续递增。下表列出了 Netscape/Mozilla 浏览器中
+JavaScript 版本号的递增过程：</div><table><tr><th>浏 览 器</th><th>JavaScript版本</th><th>浏 览 器</th><th>JavaScript版本</th></tr><tr><td>Netscape Navigator 2</td><td>1.0</td><td>Firefox 1.5</td><td>1.6</td></tr><tr><td>Netscape Navigator 3</td><td>1.1</td><td>Firefox 2</td><td>1.7</td></tr><tr><td>Netscape Navigator 4</td><td>1.2</td><td>Firefox 3</td><td>1.8</td></tr><tr><td>Netscape Navigator 4.06</td><td>1.3</td><td>Firefox 3.5</td><td>1.8.1</td></tr><tr><td>Netscape 6+（Mozilla 0.6.0+）</td><td>1.5</td><td>Firefox 3.6</td><td>1.8.2</td></tr><tr><td>Firefox 1</td><td>1.5</td></tr></table><p class="paragraph">实际上，上表中的编号方案源自 Firefox 4 将内置 JavaScript 2.0 这一共识。因此，2.0 版之前每个递
+增的版本号，表示的是相应实现与 JavaScript 2.0 开发目标还有多大的距离。虽然原计划是这样，但
+JavaScript 的这种发展速度让这个计划不再可行。目前，JavaScript 2.0 还没有目标实现。</p><p class="paragraph tips">请注意，只有 Netscape/Mozilla 浏览器才遵循这种编号模式。例如，IE 的 JScript
+就采用了另一种版本命名方案。换句话说，JScript 的版本号与上表中 JavaScript 的版
+本号之间不存在任何对应关系。而且，大多数浏览器在提及对 JavaScript 的支持情况
+时，一般都以 ECMAScript 兼容性和对 DOM 的支持情况为准。</p></section></div><!-- - var ch_num = "0"--><div id="ch1-4"><section><p class="h2">1.4 小结</p><p class="paragraph">JavaScript 是一种专为与网页交互而设计的脚本语言，由下列三个不同的部分组成：</p><ul><li>ECMAScript，由 ECMA-262 定义，提供核心语言功能；</li><li>文档对象模型（DOM），提供访问和操作网页内容的方法和接口；</li><li>浏览器对象模型（BOM），提供与浏览器交互的方法和接口。</li></ul><p class="paragraph">JavaScript 的这三个组成部分，在当前五个主要浏览器（IE、Firefox、Chrome、Safari 和 Opera）中
+都得到了不同程度的支持。其中，所有浏览器对 ECMAScript 第 3 版的支持大体上都还不错，而对
+ECMAScript 5 的支持程度越来越高，但对 DOM 的支持则彼此相差比较多。对已经正式纳入 HTML5 标
+准的 BOM 来说，尽管各浏览器都实现了某些众所周知的共同特性，但其他特性还是会因浏览器而异。</p></section></div><!-- - var ch_num = "0"--><div id="ch2"><section><p class="h1">第 2 章 在HTML中使用 JavaScript</p><p class="paragraph">本章内容</p><ul><li>使用&lt;script&gt;元素</li><li>嵌入脚本与外部脚本</li><li>文档模式对 JavaScript 的影响</li><li>考虑禁用 JavaScript 的场景</li></ul><p class="paragraph">只要一提到把 JavaScript 放到网页中，就不得不涉及 Web 的核心语言——HTML。在当初开发
+JavaScript 的时候，Netscape 要解决的一个重要问题就是如何做到让 JavaScript 既能与 HTML
+页面共存，又不影响那些页面在其他浏览器中的呈现效果。经过尝试、纠错和争论，最终的决定就是
+为 Web 增加统一的脚本支持。而 Web 诞生早期的很多做法也都保留了下来，并被正式纳入 HTML 规
+范当中。</p></section></div><!-- - var ch_num = "0"--><div id="ch2-1"><section><p class="h2">2.1 &lt;script&gt;元素</p><p class="paragraph">向 HTML 页面中插入 JavaScript 的主要方法，就是使用&lt;script&gt;元素。这个元素由 Netscape 创造
+并在 Netscape Navigator 2 中首先实现。后来，这个元素被加入到正式的 HTML 规范中。HTML 4.01 为
+&lt;script&gt;定义了下列 6 个属性。</p><ul><li>async：可选。表示应该立即下载脚本，但不应妨碍页面中的其他操作，比如下载其他资源或
+等待加载其他脚本。只对外部脚本文件有效。
+li. charset：可选。表示通过 src 属性指定的代码的字符集。由于大多数浏览器会忽略它的值，
+因此这个属性很少有人用。</li><li>defer：可选。表示脚本可以延迟到文档完全被解析和显示之后再执行。只对外部脚本文件有
+效。IE7 及更早版本对嵌入脚本也支持这个属性。</li><li>language：已废弃。原来用于表示编写代码使用的脚本语言（如 JavaScript、JavaScript1.2
+或 VBScript）。大多数浏览器会忽略这个属性，因此也没有必要再用了。</li><li>src：可选。表示包含要执行代码的外部文件。</li><li>type：可选。可以看成是 language 的替代属性；表示编写代码使用的脚本语言的内容类型（也
+称为 MIME 类型）。虽然 text/javascript 和 text/ecmascript 都已经不被推荐使用，但人
+们一直以来使用的都还是 text/javascript。实际上，服务器在传送 JavaScript 文件时使用的
+MIME 类型通常是 application/x–javascript，但在 type 中设置这个值却可能导致脚本被
+忽略。另外，在非IE浏览器中还可以使用以下值：application/javascript和application/
+ecmascript。考虑到约定俗成和最大限度的浏览器兼容性，目前 type 属性的值依旧还是
+text/javascript。不过，这个属性并不是必需的，如果没有指定这个属性，则其默认值仍为
+text/javascript。</li></ul></section><p class="paragraph">使用&lt;script&gt;元素的方式有两种：直接在页面中嵌入 JavaScript 代码和包含外部 JavaScript
+文件。</p><p class="paragraph">在使用&lt;script&gt;元素嵌入 JavaScript 代码时，只须为&lt;script&gt;指定 type 属性。然后，像下面这
+样把 JavaScript 代码直接放在元素内部即可：</p><pre><code>&lt;script type="text/javascript"&gt;
+     function sayHi(){
+        alert("Hi!");
+     }
+&lt;/script&gt;</code></pre><p class="paragraph">包含在&lt;script&gt;元素内部的 JavaScript 代码将被从上至下依次解释。就拿前面这个例子来说，解释
+器会解释一个函数的定义，然后将该定义保存在自己的环境当中。在解释器对&lt;script&gt;元素内部的所
+有代码求值完毕以前，页面中的其余内容都不会被浏览器加载或显示。</p><p class="paragraph">在使用&lt;script&gt;嵌入 JavaScript 代码时，记住不要在代码中的任何地方出现"&lt;/script&gt;"字符串。
+例如，浏览器在加载下面所示的代码时就会产生一个错误：</p><pre><code>&lt;script type="text/javascript"&gt;
+     function sayScript(){
+        alert("&lt;/script&gt;");
+     }
+&lt;/script&gt;</code></pre><p class="paragraph">因为按照解析嵌入式代码的规则，当浏览器遇到字符串"&lt;/script&gt;"时，就会认为那是结束的
+&lt;/script&gt;标签。而通过转义字符“/”可以解决这个问题，例如：</p><pre><code>&lt;script type="text/javascript"&gt;
+     function sayScript(){
+        alert("&lt;\/script&gt;");
+     }
+&lt;/script&gt;</code></pre><p class="paragraph">这样写代码浏览器可以接受，因而也就不会导致错误了。</p><p class="paragraph">如果要通过&lt;script&gt;元素来包含外部 JavaScript 文件，那么 src 属性就是必需的。这个属性的值
+是一个指向外部 JavaScript 文件的链接，例如：</p><pre><code>&lt;script type="text/javascript" src="example.js"&gt;&lt;/script&gt;</code></pre><p class="paragraph">在这个例子中，外部文件 example.js 将被加载到当前页面中。外部文件只须包含通常要放在开始
+的&lt;script&gt;和结束的&lt;/script&gt;之间的那些 JavaScript 代码即可。与解析嵌入式 JavaScript 代码一样，
+在解析外部 JavaScript 文件（包括下载该文件）时，页面的处理也会暂时停止。如果是在 XHTML 文档
+中，也可以省略前面示例代码中结束的&lt;/script&gt;标签，例如：</p><pre><code>&lt;script type="text/javascript" src="example.js" /&gt;</code></pre><p class="paragraph">但是，不能在 HTML 文档使用这种语法。原因是这种语法不符合 HTML 规范，而且也得不到某些
+浏览器（尤其是 IE）的正确解析。</p><p class="paragraph tips">按照惯例，外部 JavaScript 文件带有.js 扩展名。但这个扩展名不是必需的，因为
+浏览器不会检查包含 JavaScript 的文件的扩展名。这样一来，使用 JSP、PHP 或其他
+服务器端语言动态生成 JavaScript 代码也就成为了可能。但是，服务器通常还是需要
+看扩展名决定为响应应用哪种 MIME 类型。如果不使用.js 扩展名，请确保服务器能
+返回正确的 MIME 类型。
+</p><p class="paragraph">需要注意的是，带有 src 属性的&lt;script&gt;元素不应该在其&lt;script&gt;和&lt;/script&gt;标签之间再
+包含额外的 JavaScript 代码。如果包含了嵌入的代码，则只会下载并执行外部脚本文件，嵌入的代码
+会被忽略。</p><p class="paragraph">另外，通过&lt;script&gt;元素的 src 属性还可以包含来自外部域的 JavaScript 文件。这一点既让
+&lt;script&gt;元素倍显强大，又让它备受争议。在这一点上，&lt;script&gt;与&lt;img&gt;元素非常相似，即它的 src
+属性可以是指向当前 HTML 页面所在域之外的某个域中的完整 URL，例如：</p><pre><code>&lt;script type="text/javascript" src="http://www.somewhere.com/afile.js"&gt;&lt;/script&gt;</code></pre><p class="paragraph">这样，位于外部域中的代码也会被加载和解析，就像这些代码位于加载它们的页面中一样。利用这
+一点就可以在必要时通过不同的域来提供 JavaScript 文件。不过，在访问自己不能控制的服务器上的
+JavaScript 文件时则要多加小心。如果不幸遇到了怀有恶意的程序员，那他们随时都可能替换该文件中
+的代码。因此，如果想包含来自不同域的代码，则要么你是那个域的所有者，要么那个域的所有者值得
+信赖。</p><p class="paragraph">无论如何包含代码，只要不存在 defer 和 async 属性，浏览器都会按照&lt;script&gt;元素在页面中
+出现的先后顺序对它们依次进行解析。换句话说，在第一个&lt;script&gt;元素包含的代码解析完成后，第
+二个&lt;script&gt;包含的代码才会被解析，然后才是第三个、第四个……</p></div><!-- - var ch_num = "0"--><div id="ch2-1-1"><section><p class="h3">2.1.1 标签的位置</p><p class="paragraph">按照传统的做法，所有&lt;script&gt;元素都应该放在页面的&lt;head&gt;元素中，例如：</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Example HTML Page&lt;/title&gt;
+        &lt;script type="text/javascript" src="example1.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="example2.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- 这里放内容 --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><p class="paragraph">这种做法的目的就是把所有外部文件（包括 CSS 文件和 JavaScript 文件）的引用都放在相同的地方。
+可是，在文档的&lt;head&gt;元素中包含所有 JavaScript 文件，意味着必须等到全部 JavaScript 代码都被下载、
+解析和执行完成以后，才能开始呈现页面的内容（浏览器在遇到&lt;body&gt;标签时才开始呈现内容）。对于
+那些需要很多 JavaScript 代码的页面来说，这无疑会导致浏览器在呈现页面时出现明显的延迟，而延迟
+期间的浏览器窗口中将是一片空白。为了避免这个问题，现代 Web 应用程序一般都把全部 JavaScript 引
+用放在&lt;body&gt;元素中页面内容的后面，如下例所示：</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Example HTML Page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- 这里放内容 --&gt;
+        &lt;script type="text/javascript" src="example1.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" src="example2.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><p class="paragraph">这样，在解析包含的 JavaScript 代码之前，页面的内容将完全呈现在浏览器中。而用户也会因为浏
+览器窗口显示空白页面的时间缩短而感到打开页面的速度加快了。</p></section></div><!-- - var ch_num = "0"--><div id="ch2-1-2"><section><p class="h3">2.1.2 延迟脚本</p><p class="paragraph">HTML 4.01 为&lt;script&gt;标签定义了 defer 属性。这个属性的用途是表明脚本在执行时不会影响页
+面的构造。也就是说，脚本会被延迟到整个页面都解析完毕后再运行。因此，在&lt;script&gt;元素中设置
+defer 属性，相当于告诉浏览器立即下载，但延迟执行。</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Example HTML Page&lt;/title&gt;
+        &lt;script type="text/javascript" defer="defer" src="example1.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" defer="defer" src="example2.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- 这里放内容 --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><p class="paragraph">在这个例子中，虽然我们把&lt;script&gt;元素放在了文档的&lt;head&gt;元素中，但其中包含的脚本将延迟
+到浏览器遇到&lt;/html&gt;标签后再执行。HTML5 规范要求脚本按照它们出现的先后顺序执行，因此第一
+个延迟脚本会先于第二个延迟脚本执行，而这两个脚本会先于 DOMContentLoaded 事件（详见第 13 章）
+执行。在现实当中，延迟脚本并不一定会按照顺序执行，也不一定会在 DOMContentLoaded 事件触发
+前执行，因此最好只包含一个延迟脚本。</p><p class="paragraph">前面提到过，defer 属性只适用于外部脚本文件。这一点在 HTML5 中已经明确规定，因此支持
+HTML5 的实现会忽略给嵌入脚本设置的 defer 属性。IE4～IE7 还支持对嵌入脚本的 defer 属性，但
+IE8 及之后版本则完全支持 HTML5 规定的行为。</p><p class="paragraph">IE4、Firefox 3.5、Safari 5 和 Chrome 是最早支持 defer 属性的浏览器。其他浏览器会忽略这个属
+性，像平常一样处理脚本。为此，把延迟脚本放在页面底部仍然是最佳选择。</p><p class="paragraph tips">在 XHTML 文档中，要把 defer 属性设置为 defer="defer"。</p></section></div><!-- - var ch_num = "0"--><div id="ch2-1-3"><section><p class="h3">2.1.3 异步脚本</p><p class="paragraph">HTML5 为&lt;script&gt;元素定义了 async 属性。这个属性与 defer 属性类似，都用于改变处理脚本
+的行为。同样与 defer 类似，async 只适用于外部脚本文件，并告诉浏览器立即下载文件。但与 defer
+不同的是，标记为 async 的脚本并不保证按照指定它们的先后顺序执行。例如：</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Example HTML Page&lt;/title&gt;
+        &lt;script type="text/javascript" async src="example1.js"&gt;&lt;/script&gt;
+        &lt;script type="text/javascript" async src="example2.js"&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- 这里放内容 --&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</code></pre><p class="paragraph">在以上代码中，第二个脚本文件可能会在第一个脚本文件之前执行。因此，确保两者之间互不依赖
+非常重要。指定 async 属性的目的是不让页面等待两个脚本下载和执行，从而异步加载页面其他内容。
+为此，建议异步脚本不要在加载期间修改 DOM。</p><p class="paragraph">异步脚本一定会在页面的 load 事件前执行，但可能会在 DOMContentLoaded 事件触发之前或之
+后执行。支持异步脚本的浏览器有 Firefox 3.6、Safari 5 和 Chrome。</p><p class="paragraph tips">在 XHTML 文档中，要把 async 属性设置为 async="async"。</p></section></div><!-- - var ch_num = "0"--><div id="ch2-1-4"><section><p class="h3">2.1.4 在XHTML中的用法①</p><p class="paragraph">可扩展超文本标记语言，即 XHTML（Extensible HyperText Markup Language），是将 HTML 作为
+XML 的应用而重新定义的一个标准。编写 XHTML 代码的规则要比编写 HTML 严格得多，而且直接影
+响能否在嵌入 JavaScript 代码时使用&lt;script/>标签。以下面的代码块为例，虽然它们在 HTML 中是有
+效的，但在 XHTML 中则是无效的。</p><pre><code>&lt;script type="text/javascript">
+    function compare(a, b) {
+        if (a < b) {
+            alert("A is less than B");
+        } else if (a > b) {
+            alert("A is greater than B");
+        } else {
+            alert("A is equal to B");
+        }
+    }
+&lt;/script&gt;</code></pre><p class="paragraph">在 HTML 中，有特殊的规则用以确定&lt;script>元素中的哪些内容可以被解析，但这些特殊的规则
+在 XHTML 中不适用。这里比较语句 a < b 中的小于号（<）在 XHTML 中将被当作开始一个新标签来
+解析。但是作为标签来讲，小于号后面不能跟空格，因此就会导致语法错误。</p><p class="paragraph">避免在 XHTML 中出现类似语法错误的方法有两个。一是用相应的 HTML 实体（&lt;）替换代码
+中所有的小于号（<），替换后的代码类似如下所示：</p><pre><code>&lt;script type="text/javascript">
+    function compare(a, b) {
+        if (a &lt; b) {
+            alert("A is less than B");
+        } else if (a > b) {
+            alert("A is greater than B");
+        } else {
+            alert("A is equal to B");
+        }
+    }
+&lt;/script&gt;</code></pre><p class="paragraph">虽然这样可以让代码在 XHTML 中正常运行，但却导致代码不好理解了。为此，我们可以考虑采用
+另一个方法。</p><p class="paragraph">保证让相同代码在 XHTML 中正常运行的第二个方法，就是用一个 CData 片段来包含 JavaScript 代
+码。在 XHTML（XML）中，CData 片段是文档中的一个特殊区域，这个区域中可以包含不需要解析的
+任意格式的文本内容。因此，在 CData 片段中就可以使用任意字符——小于号当然也没有问题，而且不
+会导致语法错误。引入 CData 片段后的 JavaScript 代码块如下所示：</p><pre><code>&lt;script type="text/javascript"><![CDATA[
+    function compare(a, b) {
+    if (a < b) {
+            alert("A is less than B");
+        } else if (a > b) {
+            alert("A is greater than B");
+        } else {
+            alert("A is equal to B");
+        }
+    }
+]]>&lt;/script&gt;</code></pre><p class="paragraph">在兼容 XHTML 的浏览器中，这个方法可以解决问题。但实际上，还有不少浏览器不兼容 XHTML，
+因而不支持 CData 片段。怎么办呢？再使用 JavaScript 注释将 CData 标记注释掉就可以了：</p><p class="paragraph"></p><pre><code>&lt;script type="text/javascript">
+//<![CDATA[
+     function compare(a, b) {
+         if (a < b) {
+            alert("A is less than B");
+         } else if (a > b) {
+            alert("A is greater than B");
+         } else {
+            alert("A is equal to B");
+         }
+     }
+//]]>
+&lt;/script&gt;</code></pre><p class="paragraph">这种格式在所有现代浏览器中都可以正常使用。虽然有几分 hack 的味道，但它能通过 XHTML 验
+证，而且对 XHTML 之前的浏览器也会平稳退化。</p><p class="paragraph tips">在将页面的 MIME 类型指定为"application/xhtml+xml"的情况下会触发
+XHTML 模式。并不是所有浏览器都支持以这种方式提供 XHTML 文档。</p></section></div><!-- - var ch_num = "0"--><div id="ch2-1-5"><section><p class="h3">2.1.5 不推荐使用的语法</p><p class="paragraph">在最早引入&lt;script>元素的时候，该元素与传统 HTML 的解析规则是有冲突的。由于要对这个元
+素应用特殊的解析规则，因此在那些不支持 JavaScript 的浏览器（最典型的是 Mosaic）中就会导致问题。
+具体来说，不支持 JavaScript 的浏览器会把&lt;script>元素的内容直接输出到页面中，因而会破坏页面的
+布局和外观。</p><p class="paragraph">Netscape 与 Mosaic 协商并提出了一个解决方案，让不支持&lt;script>元素的浏览器能够隐藏嵌入的
+JavaScript 代码。这个方案就是把 JavaScript 代码包含在一个 HTML 注释中，像下面这样：</p><pre><code>&lt;script>&lt;!--
+     function sayHi(){
+        alert("Hi!");
+     }
+//--&gt;&lt;/script></code></pre><p class="paragraph">给脚本加上 HTML 注释后，Mosaic 等浏览器就会忽略&lt;script>标签中的内容；而那些支持
+JavaScript 的浏览器在遇到这种情况时，则必须进一步确认其中是否包含需要解析的 JavaScript 代码。</p><p class="paragraph">虽然这种注释 JavaScript 代码的格式得到了所有浏览器的认可，也能被正确解释，但由于所有浏览
+器都已经支持 JavaScript，因此也就没有必要再使用这种格式了。在 XHTML 模式下，因为脚本包含在
+XML 注释中，所以脚本会被忽略。</p></section></div></main><aside><div id="catalogue"><h1>目录</h1><ul class="list-root"><li class="list-first"><a class="list-link" href="#ch1">第 1 章    JavaScript 简介</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch1-1">1.1 JavaScript 简史</a></li><li class="sub-list-item"><a class="list-link" href="#ch1-2">1.2 JavaScript 实现</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch1-2-1">1.2.1 ECMAScript</a></li><li class="sub2-list-item"><a class="list-link" href="#ch1-2-2">1.2.2 文档对象模型（DOM）</a></li><li class="sub2-list-item"><a class="list-link" href="#ch1-2-2">1.2.3 浏览器对象模型（BOM）</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch1-3">1.3 JavaScript 版本</a></li><li class="sub-list-item"><a class="list-link" href="#ch1-4">1.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch2">第 2 章 在HTML中使用 JavaScript</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch2-1">2.1 &lt;script&gt;元素</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch2-1-1">2.1.1 标签的位置</a></li><li class="sub2-list-item"><a class="list-link" href="#ch2-1-2">2.1.2 延迟脚本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch2-1-3">2.1.3 异步脚本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch2-1-4">2.1.4 在XHTML中的用法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch2-1-5">2.1.5 不推荐使用的语法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch2-2">2.2 嵌入代码与外部文件.</a></li><li class="sub-list-item"><a class="list-link" href="#ch2-3">2.3 文档模式</a></li><li class="sub-list-item"><a class="list-link" href="#ch2-4">2.4 &lt;noscript&gt;元素</a></li><li class="sub-list-item"><a class="list-link" href="#ch2-5">2.5 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch3">第 3 章 基本概念</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch3-1">3.1 语法</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch3-1-1">3.1.1 区分大小写</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-1-2">3.1.2 标识符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-1-3">3.1.3 注释</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-1-4">3.1.4 严格模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-1-5">3.1.5 语句</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch3-2">3.2 关键字和保留字</a></li><li class="sub-list-item"><a class="list-link" href="#ch3-3">3.3 变量</a></li><li class="sub-list-item"><a class="list-link" href="#ch3-4">3.4 数据类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch3-4-1">3.4.1 typeof 操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-4-2">3.4.2 Undefined 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-4-3">3.4.3 Null 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-4-4">3.4.4 Boolean 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-4-5">3.4.5 Number 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-4-5">3.4.6 String 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-4-5">3.4.7 Object 类型</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch3-5">3.5 操作符</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch3-5-1"> 3.5.1 一元操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-2"> 3.5.2 位操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-3"> 3.5.3 布尔操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-4"> 3.5.4 乘性操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-5"> 3.5.5 加性操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-6"> 3.5.6 关系操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-7"> 3.5.7 相等操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-8"> 3.5.8 条件操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-9"> 3.5.9 赋值操作符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-5-10">3.5.10 逗号操作符</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch3-6">3.6 语句</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch3-6-1"> 3.6.1 if 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-2"> 3.6.2 do-while 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-3"> 3.6.3 while 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-4"> 3.6.4 for 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-5"> 3.6.5 for-in 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-6"> 3.6.6 label 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-7"> 3.6.7 break 和 continue 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-8"> 3.6.8 with 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-6-9"> 3.6.9 switch 语句</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch3-7">3.7 函数</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch3-7-1"> 3.7.1 理解参数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch3-7-2"> 3.7.2 没有重载</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch3-8">3.8 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch4">第 4 章 变量、作用域和内存问题</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch4-1">4.1 基本类型和引用类型的值</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch4-1-1">4.1.1 动态的属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch4-1-2">4.1.2 复制变量值</a></li><li class="sub2-list-item"><a class="list-link" href="#ch4-1-3">4.1.3 传递参数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch4-1-4">4.1.4 检测类型</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch4-2">4.2 执行环境及作用域</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch4-2-1">4.2.1 延长作用域链</a></li><li class="sub2-list-item"><a class="list-link" href="#ch4-2-2">4.2.2 没有块级作用域</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch4-3">4.3 垃圾收集</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch4-3-1">4.3.1 标记清除</a></li><li class="sub2-list-item"><a class="list-link" href="#ch4-3-2">4.3.2 引用计数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch4-3-3">4.3.3 性能问题</a></li><li class="sub2-list-item"><a class="list-link" href="#ch4-3-4">4.3.4 管理内存</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch4-4">4.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch5">第 5 章 引用类型</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch5-1">5.1 Object 类型</a></li><li class="sub-list-item"><a class="list-link" href="#ch5-2">5.2 Array 类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch5-2-1">5.2.1 检测数组</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-2">5.2.2 转换方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-3">5.2.3 栈方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-4">5.2.4 队列方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-5">5.2.5 重排序方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-6">5.2.6 操作方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-7">5.2.7 位置方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-8">5.2.8 迭代方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-2-9">5.2.9 归并方法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch5-3">5.3 Date 类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch5-3-1">5.3.1 继承的方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-3-2">5.3.2 日期格式化方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-3-3">5.3.3 日期/时间组件方法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch5-4">5.4 RegExp 类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch5-4-1">5.4.1 RegExp 实例属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-4-2">5.4.2 RegExp 实例方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-4-3">5.4.3 RegExp 构造函数属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-4-4">5.4.4 模式的局限性</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch5-5">Function 类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch5-5-1">5.5.1 没有重载（深入理解）</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-5-2">5.5.2 函数声明与函数表达式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-5-3">5.5.3 作为值的函数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-5-4">5.5.4 函数内部属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-5-5">5.5.5 函数属性和方法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch5-6">5.6 基本包装类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch5-5-1">5.6.1 Boolean 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-5-2">5.6.2 Number 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-5-3">5.6.3 String 类型</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch5-7">5.7 单体内置对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch5-7-1">5.7.1 Global 对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch5-7-2">5.7.2 Math 对象</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch5-8">5.8 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch6">第 6 章 面向对象的程序设计</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch6-1">6.1 理解对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch6-1-1">6.1.1 属性类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-1-2">6.1.2 定义多个属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-1-3">6.1.3 读取属性的特性</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch6-2">6.2 创建对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch6-2-1">6.2.1 工厂模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-2-2">6.2.2 构造函数模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-2-3">6.2.3 原型模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-2-4">6.2.4 组合使用构造函数模式和原型模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-2-5">6.2.5 动态原型模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-2-6">6.2.6 寄生构造函数模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-2-7">6.2.7 稳妥构造函数模式</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch6-3">6.3 继承</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch6-3-1">6.3.1 原型链</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-3-2">6.3.2 借用构造函数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-3-3">6.3.3 组合继承</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-3-4">6.3.4 原型式继承</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-3-5">6.3.5 寄生式继承</a></li><li class="sub2-list-item"><a class="list-link" href="#ch6-3-6">6.3.6 寄生组合式继承</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch6-4">6.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch7">第 7 章 函数表达式</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch6-1">7.1 递归</a></li><li class="sub-list-item"><a class="list-link" href="#ch7-2">7.2 闭包</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch7-2-1">7.2.1 闭包与变量</a></li><li class="sub2-list-item"><a class="list-link" href="#ch7-2-2">7.2.2 关于 this 对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch7-2-3">7.2.3 内存泄漏</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch7-3">7.3 模仿块级作用域</a></li><li class="sub-list-item"><a class="list-link" href="#ch7-4">7.4 私有变量</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch7-4-1">7.4.1 静态私有变量</a></li><li class="sub2-list-item"><a class="list-link" href="#ch7-4-2">7.4.2 模块模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch7-4-3">7.4.3 增强的模块模式</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch7-5">7.5 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch8">第 8 章 BOM</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch8-1">8.1 window 对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch8-1-1">8.1.1 全局作用域</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-1-2">8.1.2 窗口关系及框架</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-1-3">8.1.3 窗口位置</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-1-4">8.1.4 窗口大小</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-1-5">8.1.5 导航和打开窗口</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-1-6">8.1.6 间歇调用和超时调用</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-1-7">8.1.7 系统对话框</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch8-2">8.2 location 对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch8-2-1">8.2.1 查询字符串参数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-2-2">8.2.2 位置操作</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch8-3"> 8.3 navigator 对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch8-3-1">8.3.1 检测插件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch8-3-2">8.3.2 注册处理程序</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch8-4">8.4 screen 对象</a></li><li class="sub-list-item"><a class="list-link" href="#ch8-5">8.5 history 对象</a></li><li class="sub-list-item"><a class="list-link" href="#ch8-6">8.6 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch9">第 9 章 客户端检测</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch9-1">9.1 能力检测</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch9-1-1">9.1.1 更可靠的能力检测</a></li><li class="sub2-list-item"><a class="list-link" href="#ch9-1-2">9.1.2 能力检测，不是浏览器检测</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch9-2">9.2 怪癖检测</a></li><li class="sub-list-item"><a class="list-link" href="#ch9-3"></a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch9-3-1">9.3.1 用户代理字符串的历史</a></li><li class="sub2-list-item"><a class="list-link" href="#ch9-3-2">9.3.2 用户代理字符串检测技术</a></li><li class="sub2-list-item"><a class="list-link" href="#ch9-3-3">9.3.3 完整的代码</a></li><li class="sub2-list-item"><a class="list-link" href="#ch9-3-4">9.3.4 使用方法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch9-4">9.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch10">第 10 章 DOM</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch10-1">10.1 节点层次</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch10-1-1">10.1.1 Node 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-2">10.1.2 Document 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-3">10.1.3 Element 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-4">10.1.4 Text 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-5">10.1.5 Comment 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-6">10.1.6 CDATASection 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-7">10.1.7 DocumentType 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-8">10.1.8 DocumentFragment 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-1-9">10.1.9 Attr 类型</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch10-2">10.2 DOM 操作技术</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch10-2-1">10.2.1 动态脚本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-2-2">10.2.2 动态样式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch10-2-3">10.2.3 操作表格</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch10-3">10.3 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch11">第 11 章 DOM 扩展</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch11-1">11.1 选择符 API</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch11-1-1">11.1.1 querySelector()方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-1-2">11.1.2 querySelectorAll()方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-1-3">11.1.3 matchesSelector()方法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch11-2">11.2 元素遍历</a></li><li class="sub-list-item"><a class="list-link" href="#ch11-3">11.3 HTML5</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch11-3-1">11.3.1 与类相关的扩充</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-3-2">11.3.2 焦点管理</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-3-3">11.3.3 HTMLDocument 的变化</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-3-4">11.3.4 字符集属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-3-5">11.3.5 自定义数据属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-3-6">11.3.6 插入标记</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-3-7">11.3.7 scrollIntoView()方法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch11-4">11.4 专有扩展</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch11-1-1">11.4.1 文档模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-1-2">11.4.2 children 属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-1-3">11.4.3 contains()方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-1-4">11.4.4 插入文本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch11-1-5">11.4.5 滚动</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch11-5">11.5 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch12">第 12 章 DOM2 和 DOM3</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch12-1">12.1 DOM 变化</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch12-1-1">12.1.1 针对 XML 命名空间的变化</a></li><li class="sub2-list-item"><a class="list-link" href="#ch12-1-2">12.1.2 其他方面的变化</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch12-2">12.2 样式</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch12-2-1">12.2.1 访问元素的样式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch12-2-2">12.2.2 操作样式表</a></li><li class="sub2-list-item"><a class="list-link" href="#ch12-2-3">12.2.3 元素大小</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch12-3">12.3 遍历</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch12-3-1">12.3.1 NodeIterator</a></li><li class="sub2-list-item"><a class="list-link" href="#ch12-3-2">12.3.2 TreeWalker</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch12-4">12.4 范围</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch12-4-1">12.4.1 DOM 中的范围</a></li><li class="sub2-list-item"><a class="list-link" href="#ch12-4-2">12.4.2 IE8 及更早版本中的范围</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch12-5">12.5 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch13">第 13 章 事件</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch13-1">13.1 事件流</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch13-1-1">13.1.1 事件冒泡</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-1-2">13.1.2 事件捕获</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-1-3">13.1.3 DOM 事件流</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch13-2">13.2 事件处理程序</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch13-2-1">13.2.1 HTML 事件处理程序</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-2-2">13.2.2 DOM0 级事件处理程序</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-2-3">13.2.3 DOM2 级事件处理程序</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-2-4">13.2.4 IE 事件处理程序</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-2-5">13.2.5 跨浏览器的事件处理程序</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch13-3">13.3 事件对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch13-3-1">13.3.1 DOM 中的事件对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-3-2">13.3.2 IE 中的事件对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-3-3">13.3.3 跨浏览器的事件对象</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch13-4">13.4 事件类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch13-4-1">13.4.1 UI 事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-2">13.4.2 焦点事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-3">13.4.3 鼠标与滚轮事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-4">13.4.4 键盘与文本事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-5">13.4.5 复合事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-6">13.4.6 变动事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-7">13.4.7 HTML5 事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-8">13.4.8 设备事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-4-9">13.4.9 触摸与手势事件</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch13-5">13.5 内存和性能</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch13-5-1">13.5.1 事件委托</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-5-2">13.5.2 移除事件处理程序</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch13-6">13.6 模拟事件</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch13-6-1">13.6.1 DOM 中的事件模拟</a></li><li class="sub2-list-item"><a class="list-link" href="#ch13-6-2">13.6.2 IE 中的事件模拟</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch13-7">13.7 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch14">第 14 章 表单脚本</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch14-1">14.1 表单的基础知识</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch14-1-1">14.1.1 提交表单</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-1-2">14.1.2 重置表单</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-1-3">14.1.3 表单字段</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch14-2">14.2 文本框脚本</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch14-2-1">14.2.1 选择文本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-2-2">14.2.2 过滤输入</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-2-3">14.2.3 自动切换焦点</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-2-4">14.2.4 HTML5 约束验证 API</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch14-3">14.3 选择框脚本</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch14-3-1">14.3.1 选择选项</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-3-2">14.3.2 添加选项</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-3-3">14.3.3 移除选项</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-3-4">14.3.4 移动和重排选项</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch14-4">14.4 表单序列化</a></li><li class="sub-list-item"><a class="list-link" href="#ch14-5">14.5 富文本编辑</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch14-5-1">14.5.1 使用 contenteditable属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-5-2">14.5.2 操作富文本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-5-3">14.5.3 富文本选区</a></li><li class="sub2-list-item"><a class="list-link" href="#ch14-5-4">14.5.4 表单与富文本</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch14-6">14.6 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch15">第 15 章 使用 Canvas 绘图</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch15-1">15.1 基本用法</a></li><li class="sub-list-item"><a class="list-link" href="#ch15-2">15.2 2D 上下文</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch15-2-1">15.2.1 填充和描边</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-2">15.2.2 绘制矩形</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-3">15.2.3 绘制路径</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-4">15.2.4 绘制文本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-5">15.2.5 变换</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-6">15.2.6 绘制图像</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-7">15.2.7 阴影</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-8">15.2.8 渐变</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-9">15.2.9 模式</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-10">15.2.10 使用图像数据</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-2-11">15.2.11 合成</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch15-3">15.3 WebGL</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch15-3-1">15.3.1 类型化数组</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-3-2">15.3.2 WebGL 上下文</a></li><li class="sub2-list-item"><a class="list-link" href="#ch15-3-3">15.3.3 支持</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch15-4">15.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch16">第 16 章 HTML5 脚本编程</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch16-1">16.1 跨文档消息传递</a></li><li class="sub-list-item"><a class="list-link" href="#ch16-2">16.2 原生拖放</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch16-1-1">16.2.1 拖放事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-1-2">16.2.2 自定义放置目标</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-1-3">16.2.3 dataTransfer 对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-1-4">16.2.4 dropEffect 与effectAllowed</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-1-5">16.2.5 可拖动</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-1-6">16.2.6 其他成员</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch16-3"></a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch16-3-1">16.3.1 属性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-3-2">16.3.2 事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-3-3">16.3.3 自定义媒体播放器</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-3-4">16.3.4 检测编解码器的支持情况</a></li><li class="sub2-list-item"><a class="list-link" href="#ch16-3-5">16.3.5 Audio 类型</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch16-4">16.4 历史状态管理</a></li><li class="sub-list-item"><a class="list-link" href="#ch16-5">16.5 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch17">第 17 章 错误处理与调试</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch17-1">17.1 浏览器报告的错误</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch17-1-1">17.1.1 IE</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-1-2">17.1.2 Firefox</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-1-3">17.1.3 Safari</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-1-4">17.1.4 Opera</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-1-5">17.1.5 Chrome</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch17-2">17.2 错误处理</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch17-2-1">17.2.1 try-catch 语句</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-2-2">17.2.2 抛出错误</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-2-3">17.2.3 错误（error）事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-2-4">17.2.4 处理错误的策略</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-2-5">17.2.5 常见的错误类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-2-6">17.2.6 区分致命错误和非致命错误</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-2-7">17.2.7 把错误记录到服务器</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch17-3">17.3 调试技术</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch17-3-1">17.3.1 将消息记录到控制台</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-3-2">17.3.2 将消息记录到当前页面</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-3-3">17.3.3 抛出错误</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch17-4">17.4 常见的 IE 错误</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch17-4-1">17.4.1 操作终止</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-4-2">17.4.2 无效字符</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-4-3">17.4.3 未找到成员</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-4-4">17.4.4 未知运行时错误</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-4-5">17.4.5 语法错误</a></li><li class="sub2-list-item"><a class="list-link" href="#ch17-4-6">17.4.6 系统无法找到指定资源</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch17-5">17.5 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch18">第 18 章 JavaScript 与 XML</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch18-1">18.1 浏览器对 XML DOM 的支持</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch18-1-1">18.1.1 DOM2 级核心</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-1-2">18.1.2 DOMParser 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-1-3">18.1.3 XMLSerializer 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-1-4">18.1.4 IE8 及之前版本中的 XML</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-1-5">18.1.5 跨浏览器处理 XML</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch18-2">18.2 浏览器对 XPath 的支持</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch18-2-1">18.2.1 DOM3 级 XPath</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-2-2">18.2.2 IE 中的 XPath</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-2-3">18.2.3 跨浏览器使用 XPath</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch18-3">18.3 浏览器对 XSLT 的支持</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch18-3-1">18.3.1 IE 中的 XSLT</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-3-2">18.3.2 XSLTProcessor 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch18-3-3">18.3.3 跨浏览器使用 XSLT</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch18-4">18.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch19">第 19 章 E4X</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch19-1">19.1 E4X 的类型</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch19-1-1">19.1.1 XML 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-1-2">19.1.2 XMLList 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-1-3">19.1.3 Namespace 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-1-4">19.1.4 QName 类型</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch19-2">19.2 一般用法</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch19-2-1">19.2.1 访问特性</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-2-2">19.2.2 其他节点类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-2-3">19.2.3 查询</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-2-4">19.2.4 构建和操作 XML</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-2-5">19.2.5 解析和序列化</a></li><li class="sub2-list-item"><a class="list-link" href="#ch19-2-6">19.2.6 命名空间</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch19-3">19.3 其他变化</a></li><li class="sub-list-item"><a class="list-link" href="#ch19-4">19.4 全面启用 E4X</a></li><li class="sub-list-item"><a class="list-link" href="#ch19-5">19.5 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch20">第 20 章 JSON</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch20-1">20.1 语法</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch20-1-1">20.1.1 简单值</a></li><li class="sub2-list-item"><a class="list-link" href="#ch20-1-2">20.1.2 对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch20-1-3">20.1.3 数组</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch20-2">20.2 解析与序列化</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch20-2-1">20.2.1 JSON 对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch20-2-2">20.2.2 序列化选项</a></li><li class="sub2-list-item"><a class="list-link" href="#ch20-2-3">20.2.3 解析选项</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch20-3">20.3 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch21">第 21 章 Ajax 与 Comet</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch21-1">21.1 XMLHttpRequest 对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch21-1-1">21.1.1 XHR 的用法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-1-2">21.1.2 HTTP 头部信息</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-1-3">21.1.3 GET 请求</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-1-4">21.1.4 POST 请求</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch21-2">21.2 XMLHttpRequest 2 级</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch21-2-1">21.2.1 FormData</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-2-2">21.2.2 超时设定</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-2-3">21.2.3 overrideMimeType()方法</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch21-3">21.3 进度事件</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch21-3-1">21.3.1 load 事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-3-2">21.3.2 progress 事件</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch21-4">21.4 跨源资源共享</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch21-4-1">21.4.1 IE 对 CORS 的实现</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-4-1">21.4.2 其他浏览器对 CORS 的实现</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-4-2">21.4.3 Preflighted Reqeusts</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-4-2">21.4.4 带凭据的请求</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-4-2">21.4.5 跨浏览器的 CORS</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch21-5">21.5 其他跨域技术</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch21-5-1">21.5.1 图像 Ping</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-5-2">21.5.2 JSONP</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-5-2">21.5.3 Comet</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-5-2">21.5.4 服务器发送事件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch21-5-2">21.5.5 Web Sockets</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch21-6">21.6 安全</a></li><li class="sub-list-item"><a class="list-link" href="#ch21-7">21.7 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch22">第 22 章 高级技巧</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch22-1">22.1 高级函数</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch22-1-1">22.1.1 安全的类型检测</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-1-2">22.1.2 作用域安全的构造函数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-1-3">22.1.3 惰性载入函数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-1-4">22.1.4 函数绑定</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-1-5">22.1.5 函数柯里化</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch22-2">22.2 防篡改对象</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch22-2-1">22.2.1 不可扩展对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-2-2">22.2.2 密封的对象</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-2-3">22.2.3 冻结的对象</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch22-3">22.3 高级定时器</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch22-3-1">22.3.1 重复的定时器</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-3-2">22.3.2 Yielding Processes</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-3-3">22.3.3 函数节流</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch22-4">22.4 自定义事件</a></li><li class="sub-list-item"><a class="list-link" href="#ch22-5">22.5 拖放</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch22-5-1">22.5.1 修缮拖动功能</a></li><li class="sub2-list-item"><a class="list-link" href="#ch22-5-2">22.5.2 添加自定义事件</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch22-6">22.6 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch23">第 23 章 离线应用与客户端存储</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch23-1">23.1 离线检测</a></li><li class="sub-list-item"><a class="list-link" href="#ch23-2">23.2 应用缓存</a></li><li class="sub-list-item"><a class="list-link" href="#ch23-3">23.3 数据存储</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch23-3-1">23.3.1 Cookie</a></li><li class="sub2-list-item"><a class="list-link" href="#ch23-3-2">23.3.2 IE 用户数据</a></li><li class="sub2-list-item"><a class="list-link" href="#ch23-3-3">23.3.3 Web 存储机制</a></li><li class="sub2-list-item"><a class="list-link" href="#ch23-3-4">23.3.4 IndexedDB</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch23-4">23.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch24">第 24 章 最佳实践</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch24-1">24.1 可维护性</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch24-1-1">24.1.1 什么是可维护的代码</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-1-2">24.1.2 代码约定</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-1-3">24.1.3 松散耦合</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-1-4">24.1.4 编程实践</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch24-2">24.2 性能</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch24-2-1">24.2.1 注意作用域</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-2-2">24.2.2 选择正确方法</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-2-3">24.2.3 最小化语句数</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-2-4">24.2.4 优化 DOM 交互</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch24-3">24.3 部署</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch24-1-1">24.3.1 构建过程</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-1-2">24.3.2 验证</a></li><li class="sub2-list-item"><a class="list-link" href="#ch24-1-3">24.3.3 压缩</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch24-4">24.4 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#ch25">第 25 章 新兴的 API</a><ul class="sub-list"><li class="sub-list-item"><a class="list-link" href="#ch25-1">25.1 requestAnimationFrame()</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch25-1-1">25.1.1 早期动画循环</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-2">25.1.2 循环间隔的问题</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-3">25.1.3 mozRequestAnimation-Frame</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-4">25.1.4 webkitRequestAnima-tionFrame 与 msRequest-AnimationFrame</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch25-2">25.2 Page Visibility API</a></li><li class="sub-list-item"><a class="list-link" href="#ch25-3">25.3 Geolocation API</a></li><li class="sub-list-item"><a class="list-link" href="#ch25-4">25.4 File API</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch25-1-1">25.4.1 FileReader 类型</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-2">25.4.2 读取部分内容</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-3">25.4.3 对象 URL</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-4">25.4.4 读取拖放的文件</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-5">25.4.5 使用 XHR 上传文件</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch25-5">25.5 Web 计时</a></li><li class="sub-list-item"><a class="list-link" href="#ch25-6">25.6 Web Workers</a><ul class="sub2-list"><li class="sub2-list-item"><a class="list-link" href="#ch25-1-1">25.6.1 使用 Worker</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-2">25.6.2 Worker 全局作用域</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-3">25.6.3 包含其他脚本</a></li><li class="sub2-list-item"><a class="list-link" href="#ch25-1-4">25.6.4 Web Workers 的未来</a></li></ul></li><li class="sub-list-item"><a class="list-link" href="#ch25-7">25.7 小结</a></li></ul></li><li class="list-first"><a class="list-link" href="#catalogue1">附录 A ECMAScript Harmony</a></li><li class="list-first"><a class="list-link" href="#catalogue2">附录 B 严格模式</a></li><li class="list-first"><a class="list-link" href="#catalogue3">附录 C JavaScript 库</a></li><li class="list-first"><a class="list-link" href="#catalogue4">附录 D JavaScript 工具</a></li></ul></div></aside></body></html>

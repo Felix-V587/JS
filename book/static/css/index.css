@@ -1,0 +1,98 @@
+@charset "UTF-8";
+html {
+  font-family: Arial, "微软雅黑", Consolas; }
+
+main {
+  width: 80%;
+  float: right; }
+  main section {
+    border-bottom: 1px solid gray;
+    box-sizing: border-box;
+    padding: 2rem 1rem; }
+
+aside {
+  width: 18%;
+  float: left; }
+
+table {
+  border-bottom: 2px solid #444444; }
+  table tr th {
+    border-top: 2px solid #444444;
+    border-bottom: 1px solid #444444;
+    padding: 3px 5px; }
+  table tr td {
+    text-align: center;
+    padding: 3px 5px; }
+    table tr td:nth-child(2n-1) {
+      background-color: #9fafc2; }
+    table tr td:nth-child(2n) {
+      background-color: #eeeeee; }
+
+#catalogue {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 900px;
+  width: 20%;
+  overflow: scroll; }
+  #catalogue ul, #catalogue li {
+    list-style: none;
+    padding-left: 0.75rem; }
+  #catalogue .list-link {
+    text-decoration: none;
+    text-wrap: none;
+    color: black; }
+  #catalogue .list-first > .list-link {
+    font-size: 1.25rem;
+    font-weight: bold; }
+  #catalogue .list-first .sub-list .sub-list-item > .list-link {
+    font-size: 1.1rem; }
+  #catalogue .list-first .sub-list .sub-list-item .sub2-list .sub2-list-item > .list-link {
+    font-size: 1rem;
+    font-weight: lighter; }
+
+.paragraph {
+  text-indent: 2em; }
+
+.h1 {
+  font-size: 2em; }
+
+.h2 {
+  font-size: 1.75em; }
+
+.h3 {
+  font-size: 1.5em; }
+
+.h4 {
+  font-size: 1.25em; }
+
+.h5 {
+  font-size: 1em;
+  font-weight: bold; }
+
+.notes {
+  font-size: 0.75em;
+  font-family: Arial; }
+
+.strong {
+  font-weight: bold; }
+
+.important {
+  width: 80%;
+  height: auto;
+  margin: 0.5rem auto;
+  border: 5px solid #ff2300;
+  padding: 0.25rem; }
+
+.tips {
+  width: 80%;
+  height: auto;
+  margin: 0.5rem auto;
+  padding: 0.25rem;
+  border: 5px solid #ffe700; }
+
+.source-file {
+  border-bottom: 1px solid;
+  border-top: 1px solid; }
+
+/*# sourceMappingURL=index.css.map */

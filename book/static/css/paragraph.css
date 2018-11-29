@@ -1,0 +1,45 @@
+.paragraph {
+  text-indent: 2em; }
+
+.h1 {
+  font-size: 2em; }
+
+.h2 {
+  font-size: 1.75em; }
+
+.h3 {
+  font-size: 1.5em; }
+
+.h4 {
+  font-size: 1.25em; }
+
+.h5 {
+  font-size: 1em;
+  font-weight: bold; }
+
+.notes {
+  font-size: 0.75em;
+  font-family: Arial; }
+
+.strong {
+  font-weight: bold; }
+
+.important {
+  width: 80%;
+  height: auto;
+  margin: 0.5rem auto;
+  border: 5px solid #ff2300;
+  padding: 0.25rem; }
+
+.tips {
+  width: 80%;
+  height: auto;
+  margin: 0.5rem auto;
+  padding: 0.25rem;
+  border: 5px solid #ffe700; }
+
+.source-file {
+  border-bottom: 1px solid;
+  border-top: 1px solid; }
+
+/*# sourceMappingURL=paragraph.css.map */

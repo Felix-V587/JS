@@ -1,0 +1,21 @@
+include ../../source/_path
+-var ch_num="ch1/"
+//- 章节
+#ch1-2
+    //-文段
+    section
+        p.h2 1.2 JavaScript 实现
+        //- 基本段落
+        p.paragraph.
+            虽然 JavaScript 和 ECMAScript 通常都被人们用来表达
+            相同的含义，但 JavaScript 的含义却比 ECMA-262 中规定的
+            要多得多。没错，一个完整的 JavaScript 实现应该由下列三
+            个不同的部分组成（见图 1-1）。
+        ul
+            li 核心（ECMAScript）
+            li 文档对象模型（DOM）
+            li 浏览器对象模型（BOM）
+        //- 图片
+        .images
+            img(src=imgpath+ch_num+"ch1-1.jpg" alt="图1-1")
+            .img-tips 图 1-1

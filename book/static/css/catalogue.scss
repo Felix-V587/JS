@@ -1,0 +1,38 @@
+#catalogue {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 900px;
+  width: 20%;
+  overflow: scroll;
+  ul, li {
+    list-style: none;
+    padding-left: 0.75rem;
+  }
+  .list-link {
+    text-decoration: none;
+    text-wrap: none;
+    color: black;
+  }
+  .list-first {
+    > .list-link {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    .sub-list {
+      .sub-list-item {
+        > .list-link {
+          font-size: 1.1rem;
+        }
+        .sub2-list {
+          .sub2-list-item {
+            > .list-link {
+              font-size: 1rem;
+              font-weight: lighter;
+            }
+          }
+        }
+      }
+    }
+  }
+}
