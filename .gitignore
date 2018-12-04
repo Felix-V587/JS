@@ -1,0 +1,34 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/encodings.xml
+book/chapters/ch-appendices/
+book/chapters/ch04/
+book/chapters/ch05/
+book/chapters/ch06/
+book/chapters/ch07/
+book/chapters/ch08/
+book/chapters/ch09/
+book/chapters/ch10/
+book/chapters/ch11/
+book/chapters/ch12/
+book/chapters/ch13/
+book/chapters/ch14/
+book/chapters/ch15/
+book/chapters/ch16/
+book/chapters/ch17/
+book/chapters/ch18/
+book/chapters/ch19/
+book/chapters/ch20/
+book/chapters/ch21/
+book/chapters/ch22/
+book/chapters/ch23/
+book/chapters/ch24/
+book/chapters/ch25/
+book/static/images/ch2/
+example/AppA (no code)/
+example/AppB (no code)/
+example/AppC (no code)/
+example/AppD (no code)/
+example/ch01 (no code)/
+example/ch02 (no code)/
+settings.jar
+test/

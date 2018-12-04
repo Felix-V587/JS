@@ -4,18 +4,23 @@ html {
 
 main {
   width: 80%;
-  float: right; }
+  float: right;
+  background-color: #dddddd; }
   main section {
     border-bottom: 1px solid gray;
     box-sizing: border-box;
     padding: 2rem 1rem; }
+    main section pre {
+      width: 60%;
+      margin: 0 auto; }
 
 aside {
   width: 18%;
   float: left; }
 
 table {
-  border-bottom: 2px solid #444444; }
+  border-bottom: 2px solid #444444;
+  margin: 0 auto; }
   table tr th {
     border-top: 2px solid #444444;
     border-bottom: 1px solid #444444;

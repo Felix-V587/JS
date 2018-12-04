@@ -1,0 +1,54 @@
+include ../../source/_path
+- var ch_num="#ch3-4-4/"
+//- 章节
+#ch3-4-4
+    //-文段
+    section
+        p.h3 3.4.4 Boolean类型
+        p.paragraph Boolean 类型是 ECMAScript 中使用得最多的一种类型，该类型只有两个字面值：true 和 false。这两个值与数字值不是一回事，因此 true 不一定等于 1，而 false 也不一定等于 0。以下是为变量赋Boolean 类型值的例子：
+        pre
+            code.
+                var found = true;
+                var lost = false;
+        p.paragraph 需要注意的是，Boolean 类型的字面值 true 和 false 是区分大小写的。也就是说，True 和 False（以及其他的混合大小写形式）都不是 Boolean 值，只是标识符。
+        p.paragraph 虽然 Boolean 类型的字面值只有两个，但 ECMAScript 中所有类型的值都有与这两个 Boolean 值等价的值。要将一个值转换为其对应的 Boolean 值，可以调用转型函数 Boolean()，如下例所示：
+        pre
+            code.
+                var message = "Hello world!";
+                var messageAsBoolean = Boolean(message);
+        p.paragraph.source-file BooleanExample01.htm
+        p.paragraph 在这个例子中，字符串 message 被转换成了一个 Boolean 值，该值被保存在 messageAsBoolean变量中。可以对任何数据类型的值调用 Boolean()函数，而且总会返回一个 Boolean 值。至于返回的这个值是 true 还是 false，取决于要转换值的数据类型及其实际值。下表给出了各种数据类型及其对应的转换规则。
+        table
+            tr
+                th 数据类型
+                th 转换为true的值
+                th 转换为false的值
+            tr
+                td Boolean
+                td true
+                td false
+            tr
+                td String
+                td 任何非空字符串
+                td ""（空字符串）
+            tr
+                td Number
+                td 任何非零数字值（包括无穷大）
+                td 0和NaN（参见本章后面有关NaN的内容）
+            tr
+                td Object
+                td 任何对象
+                td null
+            tr
+                td Undefined
+                td n/a①
+                td undefined
+        p.paragraph 这些转换规则对理解流控制语句（如 if 语句）自动执行相应的 Boolean 转换非常重要，请看下面的代码：
+        pre
+            code.
+                var message = "Hello world!";
+                if (message){
+                    alert("Value is true");
+                }
+        p.paragraph.source-file BooleanExample02.htm
+        p.paragraph 运行这个示例，就会显示一个警告框，因为字符串 message 被自动转换成了对应的 Boolean 值（true）。由于存在这种自动执行的 Boolean 转换，因此确切地知道在流控制语句中使用的是什么变量至关重要。错误地使用一个对象而不是一个 Boolean 值，就有可能彻底改变应用程序的流程。

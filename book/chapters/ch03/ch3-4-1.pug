@@ -1,0 +1,28 @@
+include ../../source/_path
+- var ch_num="#ch3-4-1/"
+//- 章节
+#ch3-4-1
+    //-文段
+    section
+        //- 三级级标题
+        p.h3 3.4.1 typeof操作符
+        p.paragraph 鉴于 ECMAScript 是松散类型的，因此需要有一种手段来检测给定变量的数据类型——typeof 就是负责提供这方面信息的操作符。对一个值使用 typeof 操作符可能返回下列某个字符串：
+        ul
+            li "undefined"——如果这个值未定义；
+            li "boolean"——如果这个值是布尔值；
+            li "string"——如果这个值是字符串；
+            li "number"——如果这个值是数值；
+            li "object"——如果这个值是对象或 null；
+            li "function"——如果这个值是函数。
+        //- 基本段落
+        p.paragraph 下面是几个使用 typeof 操作符的例子：
+        pre
+            code.
+                var message = "some string";
+                alert(typeof message); // "string"
+                alert(typeof(message)); // "string"
+                alert(typeof 95); // "number"
+        p.paragraph.source-file TypeofExample01.htm
+        p.paragraph 这几个例子说明，typeof 操作符的操作数可以是变量（message），也可以是数值字面量。注意，typeof 是一个操作符而不是函数，因此例子中的圆括号尽管可以使用，但不是必需的。
+        p.paragraph 有些时候，typeof 操作符会返回一些令人迷惑但技术上却正确的值。比如，调用 typeof null会返回"object"，因为特殊值 null 被认为是一个空的对象引用。Safari 5 及之前版本、Chrome 7 及之前版本在对正则表达式调用 typeof 操作符时会返回"function"，而其他浏览器在这种情况下会返回"object"。
+        p.paragraph.tips 从技术角度讲，函数在 ECMAScript 中是对象，不是一种数据类型。然而，函数也确实有一些特殊的属性，因此通过 typeof 操作符来区分函数和其他对象是有必要的。

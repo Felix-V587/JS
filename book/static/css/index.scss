@@ -5,10 +5,16 @@ html {
 main {
   width: 80%;
   float: right;
+  background-color: #dddddd;
   section {
     border-bottom: 1px solid gray;
     box-sizing: border-box;
     padding: 2rem 1rem;
+    pre{
+      width: 60%;
+      margin: 0 auto;
+    }
+
   }
 }
 
@@ -19,6 +25,7 @@ aside {
 
 table {
   border-bottom: 2px solid #444444;
+  margin: 0 auto;
   tr {
     th {
       border-top: 2px solid #444444;

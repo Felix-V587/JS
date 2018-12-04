@@ -1,0 +1,110 @@
+include ../../source/_path
+- var ch_num="#ch3-2/"
+//- 章节
+#ch3-2
+    //-文段
+    section
+        p.h2 3.2 关键字和保留字
+        p.paragraph ECMA-262 描述了一组具有特定用途的关键字，这些关键字可用于表示控制语句的开始或结束，或者用于执行特定操作等。按照规则，关键字也是语言保留的，不能用作标识符。以下就是 ECMAScript的全部关键字（带*号上标的是第 5 版新增的关键字）：
+        table
+            tr
+                td break
+                td do
+                td instanceof
+                td typeof
+                td case
+                td else
+            tr
+
+                td new
+                td var
+                td catch
+                td finally
+                td return
+                td void
+            tr
+                td continue
+                td for
+                td switch
+                td while
+                td debugger*
+                td function
+            tr
+                td this
+                td with
+                td default
+                td if
+                td throw
+                td delete
+            tr
+                td in
+                td try
+        p.paragraph ECMA-262 还描述了另外一组不能用作标识符的保留字。尽管保留字在这门语言中还没有任何特定的用途，但它们有可能在将来被用作关键字。以下是 ECMA-262 第 3 版定义的全部保留字：
+        table
+            tr
+                td enum
+                td int
+                td short
+                td abstract
+                td boolean
+                td export
+            tr
+                td interface
+                td static
+                td byte
+                td extends
+                td long
+                td super
+            tr
+                td char
+                td final
+                td native
+                td synchronized
+                td class
+                td float
+            tr
+                td package
+                td throws
+                td const
+                td goto
+                td private
+                td transient
+            tr
+                td debugger
+                td implements
+                td protected
+                td volatile
+                td double
+                td import
+            tr
+                td public
+        p.paragraph 第 5 版把在非严格模式下运行时的保留字缩减为下列这些：
+        table
+            tr
+                td class
+                td enum
+                td extends
+                td super
+            tr
+                td const
+                td export
+                td import
+        p.paragraph 在严格模式下，第 5 版还对以下保留字施加了限制：
+        table
+            tr
+                td implements
+                td package
+                td public
+            tr
+                td interface
+                td private
+                td static
+            tr
+                td let
+                td protected
+                td yield
+        p.paragraph 注意，let 和 yield 是第 5 版新增的保留字；其他保留字都是第 3 版定义的。为了最大程度地保证兼容性，建议读者将第 3 版定义的保留字外加 let 和 yield 作为编程时的参考。
+        p.paragraph 在实现 ECMAScript 3 的 JavaScript 引擎中使用关键字作标识符，会导致“Identifier Expected”错误。而使用保留字作标识符可能会也可能不会导致相同的错误，具体取决于特定的引擎。
+        p.paragraph 第 5 版对使用关键字和保留字的规则进行了少许修改。关键字和保留字虽然仍然不能作为标识符使用，但现在可以用作对象的属性名。一般来说，最好都不要使用关键字和保留字作为标识符和属性名，以便与将来的 ECMAScript 版本兼容。
+        p.paragraph 除了上面列出的保留字和关键字，ECMA-262 第 5 版对 eval 和 arguments 还施加了限制。在严格模式下，这两个名字也不能作为标识符或属性名，否则会抛出错误。
+
