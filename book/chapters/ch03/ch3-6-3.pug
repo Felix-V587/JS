@@ -1,0 +1,19 @@
+include ../../source/_path
+- var ch_num="#ch3-6-3/"
+//- 章节
+#ch3-6-3
+    //-文段
+    section
+        p.h3 3.6.3 while语句
+        p.paragraph while 语句属于前测试循环语句，也就是说，在循环体内的代码被执行之前，就会对出口条件求值。此，循环体内的代码有可能永远不会被执行。以下是 while 语句的语法：
+        pre
+            code while(expression) statement
+        p.paragraph 下面是一个示例：
+        pre
+            code.
+                var i = 0;
+                while (i < 10) {
+                    i += 2;
+                }
+        p.paragraph.source-file WhileStatementExample01.htm
+        p.paragraph 在这个例子中，变量 i 开始时的值为 0，每次循环都会递增 2。而只要 i 的值小于 10，循环就会继续下去。

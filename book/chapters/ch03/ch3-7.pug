@@ -1,0 +1,68 @@
+include ../../source/_path
+- var ch_num="#ch3-7/"
+//- 章节
+#ch3-7
+    //-文段
+    section
+        p.h2 3.7 函数
+        p.paragraph 函数对任何语言来说都是一个核心的概念。通过函数可以封装任意多条语句，而且可以在任何地方、任何时候调用执行。ECMAScript 中的函数使用 function 关键字来声明，后跟一组参数以及函数体。函数的基本语法如下所示：
+        pre
+            code.
+                function functionName(arg0, arg1,...,argN) {
+                    statements
+                }
+        p.paragraph 以下是一个函数示例：
+        pre
+            code.
+                function sayHi(name, message) {
+                    alert("Hello " + name + "," + message);
+                }
+        p.paragraph.source-file FunctionExample01.htm
+        p.paragraph 这个函数可以通过其函数名来调用，后面还要加上一对圆括号和参数（圆括号中的参数如果有多个，可以用逗号隔开）。调用 sayHi()函数的代码如下所示：
+        pre
+            code sayHi("Nicholas", "how are you today?");
+        p.paragraph 这个函数的输出结果是"Hello Nicholas,how are you today?"。函数中定义中的命名参数 name和 message 被用作了字符串拼接的两个操作数，而结果最终通过警告框显示了出来。
+        p.paragraph ECMAScript 中的函数在定义时不必指定是否返回值。实际上，任何函数在任何时候都可以通过return 语句后跟要返回的值来实现返回值。请看下面的例子：
+        pre
+            code.
+                function sum(num1, num2) {
+                    return num1 + num2;
+                }
+        p.paragraph.source-file FunctionExample02.htm
+        p.paragraph 这个 sum()函数的作用是把两个值加起来返回一个结果。我们注意到，除了 return 语句之外，没有任何声明表示该函数会返回一个值。调用这个函数的示例代码如下：
+        pre
+            code var result = sum(5, 10);
+        p.paragraph 这个函数会在执行完 return 语句之后停止并立即退出。因此，位于 return 语句之后的任何代码都永远不会执行。例如：
+        pre
+            code.
+                function sum(num1, num2) {
+                    return num1 + num2;
+                    alert("Hello world"); // 永远不会执行
+                }
+        p.paragraph 在这个例子中，由于调用 alert()函数的语句位于 return 语句之后，因此永远不会显示警告框。当然，一个函数中也可以包含多个 return 语句，如下面这个例子中所示：
+        pre
+            code.
+                function diff(num1, num2) {
+                    if (num1 < num2) {
+                        return num2 - num1;
+                    } else {
+                        return num1 - num2;
+                    }
+                }
+        p.paragraph.source-file FunctionExample03.htm
+        p.paragraph 这个例子中定义的 diff()函数用于计算两个数值的差。如果第一个数比第二个小，则用第二个数减第一个数；否则，用第一个数减第二个数。代码中的两个分支都具有自己的 return 语句，分别用于执行正确的计算。
+        p.paragraph 另外，return 语句也可以不带有任何返回值。在这种情况下，函数在停止执行后将返回 undefined值。这种用法一般用在需要提前停止函数执行而又不需要返回值的情况下。比如在下面这个例子中，就不会显示警告框：
+        pre
+            code.
+                function sayHi(name, message) {
+                    return;
+                    alert("Hello " + name + "," + message); //永远不会调用
+                }
+        p.paragraph.source-file FunctionExample04.htm
+        p.paragraph.tips 推荐的做法是要么让函数始终都返回一个值，要么永远都不要返回值。否则，如果函数有时候返回值，有时候有不返回值，会给调试代码带来不便。
+        p.paragraph 严格模式对函数有一些限制：
+        ul
+            li 不能把函数命名为 eval 或 arguments；
+            li 不能把参数命名为 eval 或 arguments；
+            li 不能出现两个命名参数同名的情况。
+        p.paragraph 如果发生以上情况，就会导致语法错误，代码无法执行。
