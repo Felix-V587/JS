@@ -14,7 +14,7 @@ include ../../source/_path
             sup 1
             | ，以此类推。没有用到的位以 0 填充，即忽略不计。例如，数值 18 的二进制表示是00000000000000000000000000010010，或者更简洁的 10010。这是 5 个有效位，这 5 位本身就决定了实际的值（如图 3-1 所示）。
             .images
-                img(src=imgpath + ch_num + "3-1.png" alt="图 3-1")
+                img(src=img_path + ch_num + "3-1.png" alt="图 3-1")
                 .img-tips 图 3-1
         p.paragraph 负数同样以二进制码存储，但使用的格式是二进制补码。计算一个数值的二进制补码，需要经过下列 3 个步骤：
             p.paragraph (1) 求这个数值绝对值的二进制码（例如，要求-18 的二进制补码，先求 18 的二进制码）；
@@ -175,7 +175,7 @@ include ../../source/_path
         p.paragraph.source-file LeftShiftExample01.htm
         p.paragraph 注意，在向左移位后，原数值的右侧多出了 5 个空位。左移操作会以 0 来填充这些空位，以便得到的结果是一个完整的 32 位二进制数（见图 3-2）。
             .images
-                img(src=imgpath + ch_num + "3-2.png" alt="图3-2.png")
+                img(src=img_path + ch_num + "3-2.png" alt="图3-2.png")
                 .img-tips 图3-2.png
         p.paragraph 注意，左移不会影响操作数的符号位。换句话说，如果将-2 向左移动 5 位，结果将是-64，而非 64。
         p.paragraph.strong 6. 有符号的右移
@@ -187,7 +187,7 @@ include ../../source/_path
         p.paragraph.source-file SignedRightShiftExample01.htm
         p.paragraph 同样，在移位过程中，原数值中也会出现空位。只不过这次的空位出现在原数值的左侧、符号位的右侧（见图 3-3）。而此时 ECMAScript 会用符号位的值来填充所有空位，以便得到一个完整的值。
             .images
-                img(src=imgpath + ch_num + "3-3.png" alt="图3-3.png")
+                img(src=img_path + ch_num + "3-3.png" alt="图3-3.png")
                 .img-tips 图  3-3.png
         p.paragraph.strong 7. 无符号右移
         p.paragraph 无符号右移操作符由 3 个大于号（>>>）表示，这个操作符会将数值的所有 32 位都向右移动。对正数来说，无符号右移的结果与有符号右移相同。仍以前面有符号右移的代码为例，如果将 64 无符号右移 5 位，结果仍然还是 2：
