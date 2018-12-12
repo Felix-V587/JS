@@ -1,0 +1,79 @@
+include ../../source/_path
+- var ch_num="ch5-5-4/"
+//- 章节
+#ch5-5-4
+    //-文段
+    section
+        p.h3 5.5.4 函数内部属性
+        p.paragraph 在函数内部，有两个特殊的对象：arguments和this。其中，arguments在第3章曾经介绍过，它是一个类数组对象，包含着传入函数中的所有参数。虽然arguments的主要用途是保存函数参数，但这个对象还有一个名叫callee的属性，该属性是一个指针，指向拥有这个arguments对象的函数。请看下面这个非常经典的阶乘函数。
+        pre
+            code.
+                function factorial(num){
+                    if (num &lt;=1) {
+                        return 1;
+                    } else {
+                        return num * factorial(num-1)
+                    }
+                }
+        p.paragraph 定义阶乘函数一般都要用到递归算法；如上面的代码所示，在函数有名字，而且名字以后也不会变的情况下，这样定义没有问题。但问题是这个函数的执行与函数名factorial紧紧耦合在了一起。为了消除这种紧密耦合的现象，可以像下面这样使用arguments.callee。
+        pre
+            code.
+                function factorial(num){
+                    if (num &lt;=1) {
+                        return 1;
+                    } else {
+                        return num * arguments.callee(num-1)
+                    }
+                }
+        p.paragraph.source-file FunctionTypeArgumentsExample01.htm
+        p.paragraph 在这个重写后的factorial()函数的函数体内，没有再引用函数名factorial。这样，无论引用函数时使用的是什么名字，都可以保证正常完成递归调用。例如：
+        pre
+            code.
+                var trueFactorial = factorial;
+
+                factorial = function(){
+                    return 0;
+                };
+                alert(trueFactorial(5)); //120
+                alert(factorial(5)); //0
+        p.paragraph 在此，变量trueFactorial获得了factorial的值，实际上是在另一个位置上保存了一个函数的指针。然后，我们又将一个简单地返回0的函数赋值给factorial变量。如果像原来的factorial()那样不使用arguments.callee，调用trueFactorial()就会返回0。可是，在解除了函数体内的代码与函数名的耦合状态之后，trueFactorial()仍然能够正常地计算阶乘；至于factorial()，它现在只是一个返回0的函数。
+        p.paragraph 函数内部的另一个特殊对象是this，其行为与Java和C#中的this 大致类似。换句话说，this引用的是函数据以执行的环境对象——或者也可以说是this值（当在网页的全局作用域中调用函数时，this对象引用的就是window）。来看下面的例子。
+        pre
+            code.
+                window.color = "red";
+                var o = { color: "blue" };
+
+                function sayColor(){
+                    alert(this.color);
+                }
+                sayColor(); //"red"
+                o.sayColor = sayColor;
+                o.sayColor(); //"blue"
+        p.paragraph.source-file FunctionTypeThisExample01.htm
+        p.paragraph 上面这个函数sayColor()是在全局作用域中定义的，它引用了this对象。由于在调用函数之前，this的值并不确定，因此this 可能会在代码执行过程中引用不同的对象。当在全局作用域中调用sayColor()时，this引用的是全局对象window；换句话说，对this.color求值会转换成对window.color求值，于是结果就返回了"red"。而当把这个函数赋给对象o并调用o.sayColor()时，this引用的是对象o，因此对this.color求值会转换成对o.color求值，结果就返回了"blue"。
+        p.paragraph.tips 请读者一定要牢记，函数的名字仅仅是一个包含指针的变量而已。因此，即使是在不同的环境中执行，全局的sayColor()函数与o.sayColor()指向的仍然是同一个函数。
+        p.paragraph ECMAScript5也规范化了另一个函数对象的属性：caller。除了Opera的早期版本不支持，其他浏览器都支持这个ECMAScript 3并没有定义的属性。这个属性中保存着调用当前函数的函数的引用，如果是在全局作用域中调用当前函数，它的值为null。例如：
+        pre
+            code.
+                function outer(){
+                    inner();
+                }
+                function inner(){
+                    alert(inner.caller);
+                }
+                outer();
+        p.paragraph.source-file FunctionTypeArgumentsCallerExample01.htm
+        p.paragraph 以上代码会导致警告框中显示outer()函数的源代码。因为outer()调用了 inter()，所以inner.caller就指向outer()。为了实现更松散的耦合，也可以通过arguments.callee.caller来访问相同的信息。
+        pre
+            code.
+                function outer(){
+                    inner();
+                }
+                function inner(){
+                    alert(arguments.callee.caller);
+                }
+
+                outer();
+        p.paragraph.source-file FunctionTypeArgumentsCallerExample02.htm
+        p.paragraph IE、Firefox、Chrome和Safari的所有版本以及Opera 9.6都支持caller 属性。当函数在严格模式下运行时，访问arguments.callee会导致错误。ECMAScript 5还定义了arguments.caller属性，但在严格模式下访问它也会导致错误，而在非严格模式下这个属性始终是undefined。定义这个属性是为了分清arguments.caller和函数的caller属性。以上变化都是为了加强这门语言的安全性，这样第三方代码就不能在相同的环境里窥视其他代码了。
+        p.paragraph 严格模式还有一个限制：不能为函数的caller属性赋值，否则会导致错误。

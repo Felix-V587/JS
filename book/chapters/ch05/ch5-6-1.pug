@@ -1,0 +1,30 @@
+include ../../source/_path
+- var ch_num="ch5-6-1/"
+//- 章节
+#ch5-6-1
+    //-文段
+    section
+        p.h3 5.6.1 Boolean类型
+        p.paragraph Boolean类型是与布尔值对应的引用类型。要创建Boolean对象，可以像下面这样调用Boolean构造函数并传入true或false值。
+        pre
+            code.
+                var booleanObject = new Boolean(true);
+        p.paragraph Boolean类型的实例重写了valueOf()方法，返回基本类型值true或false；重写了toString()方法，返回字符串"true"和"false"。可是，Boolean对象在ECMAScript中的用处不大，因为它经常会造成人们的误解。其中最常见的问题就是在布尔表达式中使用Boolean对象，例如：
+        pre
+            code.
+                var falseObject = new Boolean(false);
+                var result = falseObject &amp;&amp; true;
+                alert(result); //true
+                var falseValue = false;
+                result = falseValue &amp;&amp; true;
+                alert(result); //false
+        p.paragraph.source-file BooleanTypeExample01.htm
+        p.paragraph 在这个例子中，我们使用false值创建了一个Boolean对象。然后，将这个对象与基本类型值true构成了逻辑与表达式。在布尔运算中，false &amp;&amp;true等于false。可是，示例中的这行代码是对falseObject而不是对它的值（false）进行求值。前面讨论过，布尔表达式中的所有对象都会被转换为true，因此falseObject对象在布尔表达式中代表的是true。结果，true &amp;&amp;true    当然就等于true了。
+        p.paragraph 基本类型与引用类型的布尔值还有两个区别。首先，typeof操作符对基本类型返回"boolean"，而对引用类型返回"object"。其次，由于Boolean对象是Boolean类型的实例，所以使用instanceof操作符测试Boolean对象会返回true，而测试基本类型的布尔值则返回false。例如：
+        pre
+            code.
+                alert(typeof falseObject); //object
+                alert(typeof falseValue); //boolean
+                alert(falseObject instanceof Boolean); //true
+                alert(falseValue instanceof Boolean); //false
+        p.paragraph 理解基本类型的布尔值与Boolean对象之间的区别非常重要——当然，我们的建议是永远不要使用Boolean对象。
