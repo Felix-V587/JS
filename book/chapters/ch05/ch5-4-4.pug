@@ -1,0 +1,22 @@
+include ../../source/_path
+- var ch_num="ch5-4-4/"
+//- 章节
+#ch5-4-4
+    //-文段
+    section
+        p.h3 5.4.4 模式的局限性
+        p.paragraph 尽管ECMAScript中的正则表达式功能还是比较完备的，但仍然缺少某些语言（特别是Perl）所支持的高级正则表达式特性。下面列出了ECMAScript正则表达式不支持的特性（要了解更多相关信息，请访问www.regular-expressions.info）。
+        ul
+            li 向后查找（lookbehind）②
+            li 匹配字符串开始和结尾的\A和\Z锚①
+            li 并集和交集类
+            li 原子组（atomic grouping）
+            li Unicode支持（单个字符除外，如\uFFFF）
+            li 命名的捕获组③
+            li s（single，单行）和x（free-spacing，无间隔）匹配模式
+            li 条件匹配
+            li 正则表达式注释
+        p.paragraph 即使存在这些限制，ECMAScript正则表达式仍然是非常强大的，能够帮我们完成绝大多数模式匹配任务。
+        p.paragraph.notes ① 但支持以插入符号（^）和美元符号（$）来匹配字符串的开始和结尾。
+        p.paragraph.notes ② 但完全支持向前查找（lookahead）。
+        p.paragraph.notes ③ 但支持编号的捕获组。

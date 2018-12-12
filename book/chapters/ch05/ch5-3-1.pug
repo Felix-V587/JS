@@ -1,0 +1,33 @@
+include ../../source/_path
+- var ch_num="ch5-3-1/"
+//- 章节
+#ch5-3-1
+    //-文段
+    section
+        p.h3 5.3.1 继承的方法
+        p.paragraph 与其他引用类型一样，Date类型也重写了toLocaleString()、toString()和valueOf()方法；但这些方法返回的值与其他类型中的方法不同。Date类型的toLocaleString()方法会按照与浏览器设置的地区相适应的格式返回日期和时间。这大致意味着时间格式中会包含AM或PM，但不会包含时区信息（当然，具体的格式会因浏览器而异）。而toString()方法则通常返回带有时区信息的日期和时间，其中时间一般以军用时间（即小时的范围是0到23）表示。下面给出了在不同浏览器中调用toLocaleString()和toString()方法，输出PST（Pacific StandardTime，太平洋标准时间）时间2007年2月1日午夜零时的结果。
+        p.paragraph.strong Internet Explorer 8
+        p.paragraph toLocaleString() — Thursday, February 01, 200712:00:00 AM
+        p.paragraph toString() — Thu Feb 1 00:00:00 PST 2007
+        p.paragraph.strong Firefox 3.5
+        p.paragraph toLocaleString() — Thursday, February 01, 200712:00:00 AM
+        p.paragraph toString() — Thu Feb 01 2007 00:00:00 GMT-0800(Pacific Standard Time)
+        p.paragraph.strong Safari 4
+        p.paragraph toLocaleString() — Thursday, February 01, 200700:00:00
+        p.paragraph toString() — Thu Feb 01 2007 00:00:00 GMT-0800(Pacific Standard Time)
+        p.paragraph.strong Chrome 4
+        p.paragraph toLocaleString() — Thu Feb 01 2007 00:00:00  GMT-0800(Pacific Standard Time)
+        p.paragraph toString() — Thu Feb 01 2007 00:00:00 GMT-0800(Pacific Standard Time)
+        p.paragraph.strong Opera 10
+        p.paragraph toLocaleString() — 2/1/2007 12:00:00 AM
+        p.paragraph toString() — Thu, 01 Feb 2007 00:00:00 GMT-0800
+        p.paragraph 显然，这两个方法在不同的浏览器中返回的日期和时间格式可谓大相径庭。事实上，toLocaleString()和toString()的这一差别仅在调试代码时比较有用，而在显示日期和时间时没有什么价值。
+        p.paragraph 至于Date类型的valueOf()方法，则根本不返回字符串，而是返回日期的毫秒表示。因此，可以方便使用比较操作符（小于或大于）来比较日期值。请看下面的例子。
+        pre
+            code.
+                var date1 = new Date(2007, 0, 1); //"January 1,2007"
+                var date2 = new Date(2007, 1, 1); //"February 1,2007"
+                alert(date1 &lt; date2); //true
+                alert(date1 &gt; date2); //false
+        p.paragraph.source-file DateTypeValueOfExample01.htm
+        p.paragraph 从逻辑上讲，2007年1月1日要早于2007年2月1日，此时如果我们说前者小于后者比较符合常理。而表示2007年1月1日的毫秒值小于表示2007年2月1日的毫秒值，因此在首先使用小于操作符比较日期时，返回的结果是true。这样，就为我们比较日期提供了极大方便。

@@ -44,3 +44,8 @@ font-size: 2em;
   border-bottom: 1px solid;
   border-top: 1px solid;
 }
+.table-left{
+  td:nth-child(2n){
+    text-align: left;
+  }
+}
