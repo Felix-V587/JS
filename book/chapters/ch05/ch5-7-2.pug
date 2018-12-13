@@ -1,0 +1,146 @@
+include ../../source/_path
+- var ch_num="ch5-7-2/"
+//- 章节
+#ch5-7-2
+    //-文段
+    section
+        p.h3 5.7.2 Math对象
+        p.paragraph ECMAScript还为保存数学公式和信息提供了一个公共位置，即Math对象。与我们在JavaScript直接编写的计算功能相比，Math对象提供的计算功能执行起来要快得多。Math对象中还提供了辅助完成这些计算的属性和方法。
+        p.paragraph.strong 1. Math对象的属性
+        p.paragraph Math对象包含的属性大都是数学计算中可能会用到的一些特殊值。下表列出了这些属性。
+        table.table-left
+            tr
+                th 属 性
+                th 说 明
+            tr
+                td Math.E
+                td 自然对数的底数，即常量e的值
+            tr
+                td Math.LN10
+                td 10的自然对数
+            tr
+                td Math.LN2
+                td 2的自然对数
+            tr
+                td Math.LOG2E
+                td 以2为底e的对数
+            tr
+                td Math.LOG10E
+                td 以10为底e的对数
+            tr
+                td Math.PI
+                td π的值
+            tr
+                td Math.SQRT1_2
+                td 1/2的平方根（即2的平方根的倒数）
+            tr
+                td Math.SQRT2
+                td 2的平方根
+        p.paragraph 虽然讨论这些值的含义和用途超出了本书范围，但你确实可以随时使用它们。
+        p.paragraph.strong 2. min()和max()方法
+        p.paragraph Math对象还包含许多方法，用于辅助完成简单和复杂的数学计算。\
+        p.paragraph 其中，min()和max()方法用于确定一组数值中的最小值和最大值。这两个方法都可以接收任意多个数值参数，如下面的例子所示。
+        pre
+            code.
+                var max = Math.max(3, 54, 32, 16);
+                alert(max); //54
+                var min = Math.min(3, 54, 32, 16);
+                alert(min); //3
+        p.paragraph.source-file MathObjectMinMaxExample01.htm
+        p.paragraph 对于3、54、32和16，Math.max()返回54，而Math.min()返回3。这两个方法经常用于避免多余的循环和在if语句中确定一组数的最大值。
+        p.paragraph 要找到数组中的最大或最小值，可以像下面这样使用apply()方法。
+        pre
+            code.
+                var values = [1, 2, 3, 4, 5, 6, 7, 8];
+                var max = Math.max.apply(Math, values);
+        p.paragraph 这个技巧的关键是把Math对象作为apply()的第一个参数，从而正确地设置this 值。然后，可以将任何数组作为第二个参数。
+        p.paragraph.strong 3. 舍入方法
+        p.paragraph 下面来介绍将小数值舍入为整数的几个方法：Math.ceil()、Math.floor()和Math.round()。这三个方法分别遵循下列舍入规则：
+        ul
+            li Math.ceil()执行向上舍入，即它总是将数值向上舍入为最接近的整数；
+            li Math.floor()执行向下舍入，即它总是将数值向下舍入为最接近的整数；
+            li Math.round()执行标准舍入，即它总是将数值四舍五入为最接近的整数（这也是我们在数学课上学到的舍入规则）。
+        p.paragraph 下面是使用这些方法的示例：
+        pre
+            code.
+                alert(Math.ceil(25.9)); //26
+                alert(Math.ceil(25.5)); //26
+                alert(Math.ceil(25.1)); //26
+                alert(Math.round(25.9)); //26
+                alert(Math.round(25.5)); //26
+                alert(Math.round(25.1)); //25
+                alert(Math.floor(25.9)); //25
+                alert(Math.floor(25.5)); //25
+                alert(Math.floor(25.1)); //25
+        p.paragraph.source-file MathObjectRoundingExample01.htm
+        p.paragraph 对于所有介于25和26（不包括26）之间的数值，Math.ceil()始终返回26，因为它执行的是向上舍入。Math.round()方法只在数值大于等于25.5时返回26；否则返回25。最后，Math.floor()对所有介于25和26（不包括26）之间的数值都返回25。
+        p.paragraph.strong 4. random()方法Math.random()方法返回大于等于0小于1的一个随机数。对于某些站点来说，这个方法非常实用，因为可以利用它来随机显示一些名人名言和新闻事件。套用下面的公式，就可以利用Math.random()从某个整数范围内随机选择一个值。
+        p.paragraph 值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值)
+        p.paragraph 公式中用到了Math.floor()方法，这是因为Math.random()总返回一个小数值。而用这个小数值乘以一个整数，然后再加上一个整数，最终结果仍然还是一个小数。举例来说，如果你想选择一个1到10之间的数值，可以像下面这样编写代码：
+        pre
+            code.
+                var num = Math.floor(Math.random() * 10 + 1);
+        p.paragraph.source-file MathObjectRandomExample01.htm
+        p.paragraph 总共有10个可能的值（1到10），而第一个可能的值是1。而如果想要选择一个介于2到10之间的值，就应该将上面的代码改成这样：
+        pre
+            code.
+                var num = Math.floor(Math.random() * 9 + 2);
+        pre
+            code.
+                MathObjectRandomExample02.htm
+        p.paragraph 从2数到10要数9个数，因此可能值的总数就是9，而第一个可能的值就是2。多数情况下，其实都可以通过一个函数来计算可能值的总数和第一个可能的值，例如：
+        pre
+            code.
+                function selectFrom(lowerValue, upperValue) {
+                    var choices = upperValue - lowerValue + 1;
+                    return Math.floor(Math.random() * choices +lowerValue);
+                }
+                var num = selectFrom(2, 10);alert(num); // 介于2和10之间（包括2和10）的一个数值
+        p.paragraph.source-file MathObjectRandomExample03.htm
+        p.paragraph 函数selectFrom()接受两个参数：应该返回的最小值和最大值。而用最大值减最小值再加1得到了可能值的总数，然后它又把这些数值套用到了前面的公式中。这样，通过调用selectFrom(2,10)就可以得到一个介于2和10之间（包括2和10）的数值了。利用这个函数，可以方便地从数组中随机取出一项，例如：
+        pre
+            code.
+                var colors = ["red", "green","blue","yellow", "black", "purple", "brown"];
+                var color = colors[selectFrom(0, colors.length-1)];
+                alert(color); // 可能是数组中包含的任何一个字符串
+        p.paragraph.source-file MathObjectRandomExample03.htm
+        p.paragraph 在这个例子中，传递给selectFrom()的第二个参数是数组的长度减1，也就是数组中最后一项的位置。
+        p.paragraph.strong 5. 其他方法Math对象中还包含其他一些与完成各种简单或复杂计算有关的方法，但详细讨论其中每一个方法的细节及适用情形超出了本书的范围。下面我们就给出一个表格，其中列出了这些没有介绍到的Math对象的方法。
+        table
+            tr
+                th 方 法
+                th 说 明
+                th 方 法
+                th 说 明
+            tr
+                td Math.abs(num)
+                td 返回num的绝对值
+                td Math.asin(x)
+                td 返回x的反正弦值
+            tr
+                td Math.exp(num)
+                td 返回Math.E的num次幂
+                td Math.atan(x)
+                td 返回x的反正切值
+            tr
+                td Math.log(num)
+                td 返回num的自然对数
+                td Math.atan2(y,x)
+                td 返回y/x的反正切值
+            tr
+                td Math.pow(num,power)
+                td 返回num的power次幂
+                td Math.cos(x)
+                td 返回x的余弦值
+            tr
+                td Math.sqrt(num)
+                td 返回num的平方根
+                td Math.sin(x)
+                td 返回x的正弦值
+            tr
+                td Math.tan(x)
+                td Math.acos(x)
+                td 返回x的反余弦值
+                td 返回x的正切值
+
+        p.paragraph 虽然ECMA-262规定了这些方法，但不同实现可能会对这些方法采用不同的算法。毕竟，计算某个值的正弦、余弦和正切的方式多种多样。也正因为如此，这些方法在不同的实现中可能会有不同的精度。

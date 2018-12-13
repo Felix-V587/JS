@@ -1,0 +1,60 @@
+include ../../source/_path
+- var ch_num="ch6-3-4/"
+//- 章节
+#ch6-3-4
+    //-文段
+    section
+        p.h3 6.3.4 原型式继承
+        p.paragraph 道格拉斯·克罗克福德在2006年写了一篇文章，题为Prototypal Inheritance in JavaScript （JavaScript中的原型式继承）。在这篇文章中，他介绍了一种实现继承的方法，这种方法并没有使用严格意义上的构造函数。他的想法是借助原型可以基于已有的对象创建新对象，同时还不必因此创建自定义类型。为了达到这个目的，他给出了如下函数。
+        pre
+            code.
+                function object(o){
+                    function F(){}
+                    F.prototype = o;
+                    return new F();
+                }
+        p.paragraph 在object()函数内部，先创建了一个临时性的构造函数，然后将传入的对象作为这个构造函数的原型，最后返回了这个临时类型的一个新实例。从本质上讲，object()对传入其中的对象执行了一次浅复制。来看下面的例子。
+        pre
+            code.
+                var person = {
+                    name: "Nicholas",
+                    friends: ["Shelby", "Court","Van"]
+                };
+                var anotherPerson = object(person);
+                anotherPerson.name = "Greg";
+                anotherPerson.friends.push("Rob");
+                var yetAnotherPerson = object(person);
+                yetAnotherPerson.name = "Linda";
+                yetAnotherPerson.friends.push("Barbie");
+                alert(person.friends); //"Shelby,Court,Van,Rob,Barbie"
+        p.paragraph.source-file PrototypalInheritanceExample01.htm
+        p.paragraph 克罗克福德主张的这种原型式继承，要求你必须有一个对象可以作为另一个对象的基础。如果有这么一个对象的话，可以把它传递给object()函数，然后再根据具体需求对得到的对象加以修改即可。在这个例子中，可以作为另一个对象基础的是person对象，于是我们把它传入到object()函数中，然后该函数就会返回一个新对象。这个新对象将person作为原型，所以它的原型中就包含一个基本类型值属性和一个引用类型值属性。这意味着person.friends不仅属于person所有，而且也会被anotherPerson以及yetAnotherPerson共享。实际上，这就相当于又创建了person对象的两个副本。
+        p.paragraph ECMAScript5通过新增Object.create()方法规范化了原型式继承。这个方法接收两个参数：一个用作新对象原型的对象和（可选的）一个为新对象定义额外属性的对象。在传入一个参数的情况下，Object.create()与object()方法的行为相同。
+        pre
+            code.
+                var person = {
+                    name: "Nicholas",
+                    friends: ["Shelby", "Court","Van"]
+                };
+                var anotherPerson = Object.create(person);
+                anotherPerson.name = "Greg";
+                anotherPerson.friends.push("Rob");
+                var yetAnotherPerson = Object.create(person);
+                yetAnotherPerson.name = "Linda";
+                yetAnotherPerson.friends.push("Barbie");
+                alert(person.friends); //"Shelby,Court,Van,Rob,Barbie"
+        p.paragraph.source-file PrototypalInheritanceExample02.htm
+        p.paragraph Object.create()方法的第二个参数与Object.defineProperties()方法的第二个参数格式相同：每个属性都是通过自己的描述符定义的。以这种方式指定的任何属性都会覆盖原型对象上的同名属性。例如：
+        pre
+            code.
+                var person = {
+                    name: "Nicholas", friends: ["Shelby", "Court","Van"]
+                };
+                var anotherPerson = Object.create(person, {
+                    name: {
+                        value: "Greg"
+                    }
+                });
+                alert(anotherPerson.name); //"Greg"
+        p.paragraph.source-file PrototypalInheritanceExample03.htm
+        p.paragraph 支持Object.create()方法的浏览器有IE9+、Firefox 4+、Safari5+、Opera 12+和Chrome。在没有必要兴师动众地创建构造函数，而只想让一个对象与另一个对象保持类似的情况下，原型式继承是完全可以胜任的。不过别忘了，包含引用类型值的属性始终都会共享相应的值，就像使用原型模式一样。

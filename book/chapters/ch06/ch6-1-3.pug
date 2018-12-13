@@ -1,0 +1,41 @@
+include ../../source/_path
+- var ch_num="ch6-1-3/"
+//- 章节
+#ch6-1-3
+    //-文段
+    section
+        p.h3 6.1.3 读取属性的特性
+        p.paragraph 使用ECMAScript5的Object.getOwnPropertyDescriptor()方法，可以取得给定属性的描述符。这个方法接收两个参数：属性所在的对象和要读取其描述符的属性名称。返回值是一个对象，如果是访问器属性，这个对象的属性有configurable、enumerable、get和set；如果是数据属性，这个对象的属性有configurable、enumerable、writable和value。例如：
+        pre
+            code.
+                var book = {};
+                Object.defineProperties(book, {
+                    _year: {
+                        value: 2004
+                    },
+                    edition: {
+                        value: 1
+                    },
+                    year: {
+                        get: function(){
+                            return this._year;
+                        },
+                        set: function(newValue){
+                            if (newValue &gt; 2004) {
+                                this._year = newValue;
+                                this.edition += newValue - 2004;
+                            }
+                        }
+                    }
+                });
+                var descriptor =Object.getOwnPropertyDescriptor(book,"_year");
+                alert(descriptor.value); //2004
+                alert(descriptor.configurable); //false
+                alert(typeof descriptor.get);//"undefined"
+                var descriptor =Object.getOwnPropertyDescriptor(book,"year");
+                alert(descriptor.value); //undefined
+                alert(descriptor.enumerable); //false
+                alert(typeof descriptor.get); //"function"
+        p.paragraph.source-file GetPropertyDescriptorExample01.htm
+        p.paragraph 对于数据属性_year，value等于最初的值，configurable是false，而get等于undefined。对于访问器属性year，value等于undefined，enumerable是false，而get是一个指向getter函数的指针。
+        p.paragraph 在JavaScript中，可以针对任何对象——包括DOM和BOM对象，使用Object.getOwnProperty-Descriptor()方法。支持这个方法的浏览器有IE9+、Firefox 4+、Safari5+、Opera    12+和Chrome。

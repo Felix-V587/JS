@@ -1,0 +1,30 @@
+include ../../source/_path
+- var ch_num="ch6-2-7/"
+//- 章节
+#ch6-2-7
+    //-文段
+    section
+        p.h3 6.2.7 稳妥构造函数模式
+        p.paragraph 道格拉斯·克罗克福德（DouglasCrockford）发明了JavaScript中的稳妥对象（durable    objects）这个概念。所谓稳妥对象，指的是没有公共属性，而且其方法也不引用this的对象。稳妥对象最适合在一些安全的环境中（这些环境中会禁止使用this和new），或者在防止数据被其他应用程序（如Mashup程序）改动时使用。稳妥构造函数遵循与寄生构造函数类似的模式，但有两点不同：一是新创建对象的实例方法不引用this；二是不使用new操作符调用构造函数。按照稳妥构造函数的要求，可以将前面的Person构造函数重写如下。
+        pre
+            code.
+                function Person(name, age, job){
+                    //创建要返回的对象
+                    var o = new Object();
+                    //可以在这里定义私有变量和函数
+
+                    //添加方法
+                    o.sayName = function(){
+                        alert(name);
+                    };
+
+                    //返回对象
+                    return o;
+                }
+        p.paragraph 注意，在以这种模式创建的对象中，除了使用sayName()方法之外，没有其他办法访问name的值。可以像下面使用稳妥的Person构造函数。
+        pre
+            code.
+                var friend = Person("Nicholas", 29, "Software Engineer");
+                friend.sayName(); //"Nicholas"
+        p.paragraph 这样，变量friend中保存的是一个稳妥对象，而除了调用sayName()方法外，没有别的方式可以访问其数据成员。即使有其他代码会给这个对象添加方法或数据成员，但也不可能有别的办法访问传入到构造函数中的原始数据。稳妥构造函数模式提供的这种安全性，使得它非常适合在某些安全执行环境——例如，ADsafe（www.adsafe.org）和Caja（http://code.google.com/p/google-caja/）提供的环境——下使用。
+        p.paragraph.tips 与寄生构造函数模式类似，使用稳妥构造函数模式创建的对象与构造函数之间也没有什么关系，因此instanceof操作符对这种对象也没有意义。

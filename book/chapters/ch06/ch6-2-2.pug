@@ -1,0 +1,92 @@
+include ../../source/_path
+- var ch_num="ch6-2-2/"
+//- 章节
+#ch6-2-2
+    //-文段
+    section
+        p.h3 6.2.2 构造函数模式
+        p.paragraph 前几章介绍过，ECMAScript中的构造函数可用来创建特定类型的对象。像Object和Array这样的原生构造函数，在运行时会自动出现在执行环境中。此外，也可以创建自定义的构造函数，从而定义自定义对象类型的属性和方法。例如，可以使用构造函数模式将前面的例子重写如下。
+        pre
+            code.
+                function Person(name, age, job){
+                    this.name = name;
+                    this.age = age;
+                    this.job = job;
+                    this.sayName = function(){
+                        alert(this.name);
+                    };
+                }
+                var person1 = new Person("Nicholas", 29,"Software Engineer");
+                var person2 = new Person("Greg", 27, "Doctor");
+        p.paragraph.source-file ConstructorPatternExample01.htm
+        p.paragraph 在这个例子中，Person()函数取代了createPerson()函数。我们注意到，Person()中的代码除了与createPerson()中相同的部分外，还存在以下不同之处：
+        ul
+            li 没有显式地创建对象；
+            li 直接将属性和方法赋给了this对象；
+            li 没有return语句。
+        p.paragraph 此外，还应该注意到函数名Person使用的是大写字母P。按照惯例，构造函数始终都应该以一个大写字母开头，而非构造函数则应该以一个小写字母开头。这个做法借鉴自其他OO语言，主要是为了区别于ECMAScript中的其他函数；因为构造函数本身也是函数，只不过可以用来创建对象而已。要创建Person的新实例，必须使用new 操作符。以这种方式调用构造函数实际上会经历以下4个步骤：
+        ol
+             li 创建一个新对象；
+             li 将构造函数的作用域赋给新对象（因此this就指向了这个新对象）；
+             li 执行构造函数中的代码（为这个新对象添加属性）；
+             li 返回新对象。
+        p.paragraph 在前面例子的最后，person1和person2分别保存着Person的一个不同的实例。这两个对象都有一个constructor（构造函数）属性，该属性指向Person，如下所示。
+        pre
+            code.
+                alert(person1.constructor == Person); //true
+                alert(person2.constructor == Person); //true
+        p.paragraph 对象的constructor属性最初是用来标识对象类型的。但是，提到检测对象类型，还是instan-ceof操作符要更可靠一些。我们在这个例子中创建的所有对象既是Object的实例，同时也是Person的实例，这一点通过instanceof操作符可以得到验证。
+        pre
+            code.
+                alert(person1 instanceof Object); //true
+                alert(person1 instanceof Person); //true
+                alert(person2 instanceof Object); //true
+                alert(person2 instanceof Person); //true
+        p.paragraph 创建自定义的构造函数意味着将来可以将它的实例标识为一种特定的类型；而这正是构造函数模式胜过工厂模式的地方。在这个例子中，person1和person2之所以同时是Object的实例，是因为所有对象均继承自Object（详细内容稍后讨论）。
+        p.paragraph.tips 以这种方式定义的构造函数是定义在Global对象（在浏览器中是window对象）中的。第8章将详细讨论浏览器对象模型（BOM）。
+        p.paragraph.strong 1. 将构造函数当作函数
+        p.paragraph 构造函数与其他函数的唯一区别，就在于调用它们的方式不同。不过，构造函数毕竟也是函数，不存在定义构造函数的特殊语法。任何函数，只要通过new操作符来调用，那它就可以作为构造函数；而任何函数，如果不通过new操作符来调用，那它跟普通函数也不会有什么两样。例如，前面例子中定义的Person()函数可以通过下列任何一种方式来调用。
+        pre
+            code.
+                // 当作构造函数使用
+                var person = new Person("Nicholas", 29,"Software Engineer");
+                person.sayName(); //"Nicholas"
+                // 作为普通函数调用
+                Person("Greg", 27, "Doctor"); //添加到window
+                window.sayName(); //"Greg"
+                // 在另一个对象的作用域中调用
+                var o = new Object();
+                Person.call(o, "Kristen", 25, "Nurse");
+                o.sayName(); //"Kristen"
+        p.paragraph.source-file ConstructorPatternExample02.htm
+        p.paragraph 这个例子中的前两行代码展示了构造函数的典型用法，即使用new操作符来创建一个新对象。接下来的两行代码展示了不使用new操作符调用Person()会出现什么结果：属性和方法都被添加给window对象了。有读者可能还记得，当在全局作用域中调用一个函数时，this对象总是指向Global对象（在浏览器中就是window对象）。因此，在调用完函数之后，可以通过window对象来调用sayName()方法，并且还返回了"Greg"。最后，也可以使用call()（或者apply()）在某个特殊对象的作用域中调用Person()函数。这里是在对象o的作用域中调用的，因此调用后o就拥有了所有属性和sayName()方法。
+        p.paragraph.strong 2. 构造函数的问题
+        p.paragraph 构造函数模式虽然好用，但也并非没有缺点。使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍。在前面的例子中，person1和person2都有一个名为sayName()的方法，但那两个方法不是同一个Function的实例。不要忘了——ECMAScript中的函数是对象，因此每定义一个函数，也就是实例化了一个对象。从逻辑角度讲，此时的构造函数也可以这样定义。
+        pre
+            code.
+                function Person(name, age, job){
+                    this.name = name;
+                    this.age = age;
+                    this.job = job;
+                    this.sayName = new Function("alert(this.name)");//    与声明函数在逻辑上是等价的
+                }
+        p.paragraph 从这个角度上来看构造函数，更容易明白每个Person实例都包含一个不同的Function实例（以显示name属性）的本质。说明白些，以这种方式创建函数，会导致不同的作用域链和标识符解析，但创建Function新实例的机制仍然是相同的。因此，不同实例上的同名函数是不相等的，以下代码可以证明这一点。
+        pre
+            code.
+                alert(person1.sayName == person2.sayName); //false
+        p.paragraph 然而，创建两个完成同样任务的Function实例的确没有必要；况且有this对象在，根本不用在执行代码前就把函数绑定到特定对象上面。因此，大可像下面这样，通过把函数定义转移到构造函数外部来解决这个问题。
+        pre
+            code.
+                function Person(name, age, job){
+                    this.name = name;
+                    this.age = age;
+                    this.job = job;
+                    this.sayName = sayName;
+                }
+                function sayName(){
+                    alert(this.name);
+                }
+                var person1 = new Person("Nicholas", 29,"Software Engineer");
+                var person2 = new Person("Greg", 27, "Doctor");
+        p.paragraph.source-file ConstructorPatternExample03.htm
+        p.paragraph 在这个例子中，我们把sayName()函数的定义转移到了构造函数外部。而在构造函数内部，我们将sayName属性设置成等于全局的sayName函数。这样一来，由于sayName 包含的是一个指向函数的指针，因此person1和person2对象就共享了在全局作用域中定义的同一个sayName()函数。这样做确实解决了两个函数做同一件事的问题，可是新问题又来了：在全局作用域中定义的函数实际上只能被某个对象调用，这让全局作用域有点名不副实。而更让人无法接受的是：如果对象需要定义很多方法，那么就要定义很多个全局函数，于是我们这个自定义的引用类型就丝毫没有封装性可言了。好在，这些问题可以通过使用原型模式来解决。

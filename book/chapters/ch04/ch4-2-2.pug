@@ -56,7 +56,7 @@ include ../../source/_path
         p.paragraph.source-file ExecutionContextExample06.htm
         p.paragraph 调用本例中的函数 getColor()时会引用变量 color。为了确定变量 color 的值，将开始一个两步的搜索过程。首先，搜索 getColor()的变量对象，查找其中是否包含一个名为 color 的标识符。在没有找到的情况下，搜索继续到下一个变量对象（全局环境的变量对象），然后在那里找到了名为color 的标识符。因为搜索到了定义这个变量的变量对象，搜索过程宣告结束。图 4-4 形象地展示了上述搜索过程。
         .images
-            img(src=img_path + ch_num + "4-4.jpg" alt="图 4-4 ")
+            img(src=img_path +  "4-4.jpg" alt="图 4-4 ")
             .img-tips 图 4-4
         p.paragraph 在这个搜索过程中，如果存在一个局部的变量的定义，则搜索会自动停止，不再进入另一个变量对象。换句话说，如果局部环境中存在着同名标识符，就不会使用位于父环境中的标识符，如下面的例子所示：
         pre

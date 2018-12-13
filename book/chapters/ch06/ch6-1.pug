@@ -1,0 +1,30 @@
+include ../../source/_path
+- var ch_num="ch6-1/"
+//- 章节
+#ch6-1
+    //-文段
+    section
+        p.h2 6.1 理解对象
+        p.paragraph 上一章曾经介绍过，创建自定义对象的最简单方式就是创建一个Object的实例，然后再为它添加属性和方法，如下所示。
+        pre
+            code.
+                var person = new Object();
+                person.name = "Nicholas";
+                person.age = 29;
+                person.job = "Software Engineer";
+                person.sayName = function(){
+                    alert(this.name);
+                };
+        p.paragraph.source-file CreatingObjectsExample01.htm
+        p.paragraph 上面的例子创建了一个名为person的对象，并为它添加了三个属性（name、age和job）和一个    方法（sayName()）。其中，sayName()方法用于显示this.name（将被解析为person.name）的值。早期的JavaScript开发人员经常使用这个模式创建新对象。几年后，对象字面量成为创建这种对象的首选模式。前面的例子用对象字面量语法可以写成这样：
+        pre
+            code.
+                var person = {
+                    name: "Nicholas",
+                     age: 29,
+                     job: "Software Engineer",
+                     sayName: function(){
+                        alert(this.name);
+                    }
+                };
+        p.paragraph 这个例子中的person对象与前面例子中的person对象是一样的，都有相同的属性和方法。这些属性在创建时都带有一些特征值（characteristic），JavaScript通过这些特征值来定义它们的行为。

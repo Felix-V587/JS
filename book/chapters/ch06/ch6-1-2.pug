@@ -1,0 +1,32 @@
+include ../../source/_path
+- var ch_num="ch6-1-2/"
+//- 章节
+#ch6-1-2
+    //-文段
+    section
+        p.h3 6.1.2 定义多个属性
+        p.paragraph 由于为对象定义多个属性的可能性很大，ECMAScript5又定义了一个Object.definePro-perties()方法。利用这个方法可以通过描述符一次定义多个属性。这个方法接收两个对象参数：第一个对象是要添加和修改其属性的对象，第二个对象的属性与第一个对象中要添加或修改的属性一一对应。例如：
+        pre
+            code.
+                var book = {};
+                Object.defineProperties(book, {
+                    _year: {
+                        value: 2004
+                    },
+                    edition: {
+                        value: 1
+                    },
+                    year: {
+                        get: function(){
+                            return this._year;
+                        },
+                        set: function(newValue){
+                            if (newValue &gt; 2004) {
+                                this._year = newValue;
+                                this.edition += newValue - 2004;
+                            }
+                        }
+                    }
+                });
+        p.paragraph.source-file MultiplePropertiesExample01.htm
+        p.paragraph 以上代码在book对象上定义了两个数据属性（_year和edition）和一个访问器属性（year）。最终的对象与上一节中定义的对象相同。唯一的区别是这里的属性都是在同一时间创建的。支持Object.defineProperties()方法的浏览器有IE9+、Firefox4+、Safari 5+、Opera 12+和Chrome。
